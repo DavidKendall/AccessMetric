@@ -23,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.9899495"
-     inkscape:cx="102.27055"
+     inkscape:cx="407.97135"
      inkscape:cy="620.65892"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -61,7 +61,7 @@
       <path
          id="path4537"
          d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         style="fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt;stroke-opacity:1;fill:#0000ff;fill-opacity:1"
          transform="scale(0.8) rotate(180) translate(12.5,0)" />
     </marker>
     <marker
@@ -271,52 +271,52 @@
     <text
        sodipodi:linespacing="125%"
        id="text4916"
-       y="332.12341"
-       x="136.04628"
+       y="309.90005"
+       x="125.94476"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="332.12341"
-         x="136.04628"
+         y="309.90005"
+         x="125.94476"
          id="tspan4918"
          sodipodi:role="line">cohesion (neighbour)</tspan><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="349.62341"
-         x="136.04628"
+         y="327.40005"
+         x="125.94476"
          sodipodi:role="line"
          id="tspan4288">field</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4916-7"
-       y="550.23145"
-       x="132.19124"
+       y="555.28223"
+       x="115.01865"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="550.23145"
-         x="132.19124"
+         y="555.28223"
+         x="115.01865"
          sodipodi:role="line"
          id="tspan4290">repulsion</tspan><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="567.73145"
-         x="132.19124"
+         y="572.78223"
+         x="115.01865"
          sodipodi:role="line"
          id="tspan4284">field</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3027"
-       y="410.32907"
-       x="112.83658"
+       y="406.28845"
+       x="74.450783"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="410.32907"
-         x="112.83658"
+         y="406.28845"
+         x="74.450783"
          sodipodi:role="line"
          id="tspan3032">sensing</tspan><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="427.82907"
-         x="112.83658"
+         y="423.78845"
+         x="74.450783"
          sodipodi:role="line"
          id="tspan4933"> field</tspan></text>
     <ellipse
@@ -337,18 +337,18 @@
        id="path4254"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 176.27162,346.26556 102.0254,39.90102"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.78475153px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 171.23251,316.90791 45.43356,55.17977"
        id="path4925"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 142.93658,421.52192 c 2.52539,1.01016 77.78175,22.22336 77.78175,22.22336"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.65241587px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 96.408678,414.29768 c 1.544795,0.7029 47.579512,15.46381 47.579512,15.46381"
        id="path4927"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 188.89852,541.225 289.4087,498.79859"
+       d="M 152.51272,549.30622 253.0229,506.87981"
        id="path4929"
        inkscape:connector-curvature="0" />
     <path
@@ -380,23 +380,23 @@
     <text
        sodipodi:linespacing="125%"
        id="text4916-3"
-       y="311.42007"
-       x="478.51917"
+       y="297.27795"
+       x="507.8136"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="311.42007"
-         x="480.74768"
+         y="297.27795"
+         x="510.04211"
          sodipodi:role="line"
          id="tspan4288-7">neighbour </tspan><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="328.92007"
-         x="478.51917"
+         y="314.77795"
+         x="507.8136"
          sodipodi:role="line"
          id="tspan4215">of b</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 455.07372,316.97113 -19.69798,48.9924"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.61103034px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 476.93211,305.00308 435.7407,365.80975"
        id="path4217"
        inkscape:connector-curvature="0" />
     <text
@@ -437,23 +437,23 @@
     <text
        sodipodi:linespacing="125%"
        id="text4916-7-6"
-       y="248.79063"
-       x="191.84354"
+       y="242.72972"
+       x="243.36133"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="248.79063"
-         x="191.84354"
+         y="242.72972"
+         x="243.36133"
          sodipodi:role="line"
          id="tspan4290-7">obstacle repulsion</tspan><tspan
          style="font-size:14px;text-align:center;text-anchor:middle"
-         y="266.29065"
-         x="191.84354"
+         y="260.22974"
+         x="243.36133"
          sodipodi:role="line"
          id="tspan4284-5">field</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 209.10158,261.41275 39.39594,39.39594"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8197974px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 285.80946,251.24751 39.52336,26.39138"
        id="path4306"
        inkscape:connector-curvature="0" />
     <path

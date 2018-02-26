@@ -41,7 +41,8 @@
 \title{An Improved Metric for the Analysis of Swarms}
 \author{\uppercase{Neil Eliot}\authorrefmark{1},
 \uppercase{David Kendall\authorrefmark{1}, and Michael Brockway\authorrefmark{1}}}
-\address[1]{Northumbria University, Department of Computing and Information Sciences, Newcastle upon Tyne, NE1 8ST}
+\address[1]{Northumbria University, Department of Computing and Information Sciences, 
+Newcastle upon Tyne, NE1 8ST}
 
 \markboth
 {Eliot \headeretal: An Improved Metric for the Analysis of Swarms}
@@ -68,7 +69,7 @@ structure to identify the `level' of change in a swarm's internal structure
 which is an indication of the amount of unnecessary movement an algorithm
 creates.  In addition the \emph{cohesion/repulsion} metric also identifies a
 swarm as expanding or cohesive.  This additional information has practical
-benefits for the implementation of algorithms for heterogeneous swarms.
+benefits for the implementation of algorithms in heterogeneous field-effect swarms.
 \end{abstract}
 
 \begin{keywords}
@@ -92,7 +93,7 @@ This paper presents a swarm model and then applies the two metrics to this model
 \section{Swarm modelling}\label{SwarmModelling}
 Currently, much swarm research uses field effects as the method of modelling inter-agent interactions~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02, GP:04, GP:04a, GP:05, GP:11, MYP:09}. The models usually use two field effects to implement the swarming characteristic. These effects are \emph{cohesion}, to draw agents closer, and \emph{repulsion} to prevent agents colliding. \emph{Field effects} are the ranges around an agent that determine the effect other agents have upon its movement~(Figure~\ref{methods:FieldEffects}). It is usual for the cohesion field to have a radius $C_b$ which is larger than the repulsion radius $R_b$. When an agent ($b'$) moves into the \emph{neighbour field} of an agent ($b$) then $b'$ is said to be a neighbour of $b$ and is subject to cohesion. When an agent $b'$ moves into the repulsion field of $b$ then $b$ also subjected to repulsion. When the repulsion magnitude exceeds the cohesion magnitude the agent will have a tendency to move away from $b'$, i.e. repulsed. When an agent $b$ moves too close to an obstacle, i.e. within the obstacle repulsion range $O_b$, it has repulsion vector applied and the agent will tend towards moving away from the obstacle.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/FieldEffects}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects}
 {Agent field effects.\label{methods:FieldEffects}}
 
 %% \begin{figure}[H]
@@ -526,15 +527,15 @@ A possible adaptation to both of these areas of research would be to use the swa
 \bibliographystyle{plain}
 \bibliography{thesis}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/NEGrey}}]{Neil Eliot}
-is a Senior Lecturer at Northumbria University.  Neil was awarded his Ph.D. from Northumbria in 2017, his Pg.C. in 1994, and his B.Sc. in 1989 all in Computing. His research areas include swarm theory and cybersecurity. Neil is a Certified Ethical Hacker (CEH) and coordinator for the EC Council Academic alliance at Northumbria. Prior to this Neil worked in the chemical industry and the NHS. His research interests are in the area of network cybersecurity, smart home technologies and swarm theory. 
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/eliot}}]{Neil Eliot}
+has been a Senior Lecturer at Northumbria University since 1998.  Neil was awarded his Ph.D. from Northumbria in 2017, his Pg.C. in 1994, and his B.Sc. in 1989 all in Computing. His research areas include swarm theory and cybersecurity. Prior to this Neil worked in the chemical industry and the NHS. His research interests are in the area of network cybersecurity, smart home technologies and swarm theory. 
 \end{IEEEbiography}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/DKGrey}}]{David Kendall}
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/kenda}}]{David Kendall}
 has been a Senior Lecturer in Computing at Northumbria University since 1989, except for a brief period as a Lecturer in Computer Science at Durham University (2001-02). Previously, he was a Research Associate at Newcastle University (1987-89), following experience as a Senior Software Engineer in industry (1983-86). He has an M.A. degree in Literae Humaniores from Oxford University, where he studied at New College. He received M.Sc. and Ph.D. degrees in Computing Science from Newcastle University. His research interests are in the area of formal modelling and analysis of embedded systems. 
 \end{IEEEbiography}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/MBGrey}}]{Michael Brockway}
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/brock}}]{Michael Brockway}
 has been a Senior Lecturer at Northumbria University for 17 years. His first degree is in pure and applied mathematics (1973-4), his Masters in mathematics (mathematical logic, category theory, 1975), and he has a PhD in computer science (formal methods for distributed embedded systems, 2010) from Northumbria University. Before that Michael worked in teaching and the computing industry.
 \end{IEEEbiography}
 
