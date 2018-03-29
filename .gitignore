@@ -1,0 +1,9 @@
+paper.pdf
+*.*~
+*.ps
+*.blg
+*.aux
+*.log
+*.vrb
+*.dvi
+
