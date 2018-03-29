@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex paper"] 1522330649 "paper.aux" "paper.bbl" "paper" 1522330649
+["bibtex paper"] 1522330649 "paper.aux" "paper.bbl" "paper" 1522330795
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "paper.aux" 1522330649 7144 eb66a34f16e0f8999addb31f2b5c08d8 ""
   "paper.bcf" 0 -1 0 ""
@@ -7,9 +7,9 @@
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1522330649 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1522330649
+["pdflatex"] 1522330649 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1522330795
   "/etc/texmf/web2c/texmf.cnf" 1521388104 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1522330648 45721 571a30c55bcaf155525071bf5d3dd315 ""
+  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1522330795 45721 571a30c55bcaf155525071bf5d3dd315 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -153,8 +153,8 @@
   "notaglineLogo.png" 1519301226 3150 e273b7aed356b5f76c6d0b072166d68c ""
   "paper.aux" 1522330649 7144 eb66a34f16e0f8999addb31f2b5c08d8 ""
   "paper.bbl" 1522330649 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
-  "paper.tex" 1522330648 45721 571a30c55bcaf155525071bf5d3dd315 ""
+  "paper.tex" 1522330795 45721 571a30c55bcaf155525071bf5d3dd315 ""
   (generated)
-  "paper.aux"
   "paper.pdf"
+  "paper.aux"
   "paper.log"
