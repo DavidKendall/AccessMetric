@@ -497,6 +497,74 @@ Figure~\ref{coord:BaselineMagnitude1} shows the evolution of the metric in time.
 %% \caption{Baseline internal movement - magnitude\label{coord:BaselineMagnitude1}}
 %% \end{figure}
 
+\section{Application: Flood filling\label{metric:ApplicationFloodFilling}}
+
+Area flooding is a technique used to fill an enclosed area with agents such that they are distributed as `effectively' as possible throughout an area. An optimum distribution of agents is not necessarily an even distribution. The distribution of the agents is governed by the field effects and the interaction of agents with obstacles (\textit{interaction vectors}). 
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD1}
+{Flood fill Start.\label{emerge:FLOOD1}}
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD6}
+{Flood fill End.\label{emerge:FLOOD6}}
+
+Filling an area can be applied to tasks that require an unknown environment to be analysed or surveyed. Consider a disaster area following a landslide or a building collapsing following an earthquake; the movement in the land and buildings will produce spaces that are unmapped. The unmapped areas may require investigation to locate people, resources or to create some form of sensor network to analyse the conditions within the area such as creating a heat map or to identify the location toxic gases. 
+
+The concept of using a swarm to provide coverage over unknown areas is a current area of research. Alvissalim et al. (2012) discuss the application of commercially available drones to provide a communication infrastructure across an unknown disaster areas~\cite{AZHMJJM:12}. Scheutz and Bauer (2006) use both cohesion and repulsion as a mechanism to create coverage of an area that requires protection in an adversarial environment~\cite{SB:06}.
+
+The concept behind the field effect expansion is to increase both the repulsion and cohesion fields over a period of time. This increase in the field effects makes the agents increase the distance between each other expanding the swarm as a whole. The expansion increases until, due to boundary compression, the swarm is unable to expand further. In an extreme case the expansion will result in a set of field effects that create a mesh based swarm structure rather than the desired hexagonal structure that the field effects should create. Identifying either the change in modality or the inability to expand, which can be identified by the \textit{inter-agent vector magnitude} increase or a reduction in the inter-agent distance stability indicates area saturation has occurred.
+
+To test this hypothesis a swarm is modelled in the simulator. The model consists of an obstacle-based enclosed space and a swarm consisting of 60 agents. The experiments parameters for the simulation are shown in~table~\ref{tab:FillParameters1}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| p{1.8cm} | p{1.5cm} | p{4.0cm} |}
+\hline
+\bf Parameter & \bf Value  & \bf Description \\ \hline
+$k_c$         & 5          & weight adjuster for cohesion bias\\ \hline
+$k_r$         & 60         & weight adjuster for repulsion bias\\ \hline
+Sample rate   & 100ms      & proximity sensor rate\\ \hline
+Speed         & 20 units/s & agent speed\\ \hline
+\end{tabular}\caption{Swarm parameters} \label{tab:FillParameters1}
+\end{center}
+\end{table}
+
+The field effects are incremented in turn, neighbour range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:emerge:BaselineConcaveReduction} shows the field effect settings that are used for the simulation. The field effect are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. 
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| p{1.8cm} | p{0.3cm} | p{0.3cm} | p{0.3cm} | p{0.3cm} | p{0.3cm} | p{0.3cm} | p{0.3cm} | p{0.7cm} |}
+\hline
+\bf Weight \bf component & \bf 1 & \bf 2 & \bf 3 & \bf 4 & \bf 5 & \bf 6 & \bf 7 & \\ \hline
+Repulsion Boundary & 50 & -  & 60 & -  & 70 & -  & 80 & units\\  \hline
+Neighbour Distance & 60 & 70 & -  & 80 & -  & 90 & -  & units\\  \hline
+\end{tabular}\caption{Field effect expansion sequence} \label{tab:FillSequence}
+\end{center}
+\end{table}
+
+Figure~\ref{emerge:FIELDFILL-MAG} shows the resultant magnitude for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm and it is unable to expand the inter-agent distances.
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-MAG}
+{Cohesion/Repulsion metric 0-120 seconds.\label{emerge:FIELDFILL-MAG}}
+
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=12cm]{figures/FIELDFILL-MAG}
+% \end{center}
+% \caption{Magnitude metric 0-120 seconds\label{emerge:FIELDFILL-MAG}}
+% \end{figure}
+
+Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 12 seconds.
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-DIST}
+{Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
+
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=12cm]{figures/FIELDFILL-DIST}
+% \end{center}
+% \caption{Distance metric 0-120 seconds\label{emerge:FIELDFILL-DIST}}
+% \end{figure}
+
 \section{Conclusion\label{metric:MagnitudeDistanceComparison}}
 %% The two metrics (distance and \emph{cohesion/repulsion}) both measure the structure of a swarm in terms of the distribution of the agents and deviations from a mean. The \emph{cohesion/repulsion} metric also allows the state of the swarm to be identified.
 %% 

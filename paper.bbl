@@ -6,6 +6,14 @@ N.~Agmon, S.~Kraus, and G.~A. Kaminka.
 \newblock In {\em Robotics and Automation, 2008. ICRA 2008. IEEE International
   Conference on}, pages 2339--2345, May 2008.
 
+\bibitem{AZHMJJM:12}
+M.~S. Alvissalim, B.~Zaman, Z.~A. Hafizh, M.~A. Ma'sum, G.~Jati, W.~Jatmiko,
+  and P.~Mursanto.
+\newblock Swarm quadrotor robots for telecommunication network coverage area
+  expansion in disaster area.
+\newblock In {\em SICE Annual Conference (SICE), 2012 Proceedings of}, pages
+  2256--2261, Aug 2012.
+
 \bibitem{APZDAMC:09}
 Panayiotis Andreou, Demetrios Zeinalipour-Yazti, Maria Andreou, Panos~K
   Chrysanthis, and George Samaras.
@@ -140,6 +148,14 @@ R.~Ramaithitima, M.~Whitzer, S.~Bhattacharya, and V.~Kumar.
   information.
 \newblock In {\em 2015 IEEE International Conference on Robotics and Automation
   (ICRA)}, pages 3408--3415, May 2015.
+
+\bibitem{SB:06}
+M.~Scheutz and P.~Bauer.
+\newblock A scalable, robust, ultra-low complexity agent swarm for area
+  coverage and interception tasks.
+\newblock In {\em 2006 IEEE Conference on Computer Aided Control System Design,
+  2006 IEEE International Conference on Control Applications, 2006 IEEE
+  International Symposium on Intelligent Control}, pages 1258--1263, Oct 2006.
 
 \bibitem{ZAPS:07}
 Demetrios Zeinalipour-Yazti, Panayiotis Andreou, Panos~K. Chrysanthis, and
