@@ -513,7 +513,7 @@ The concept of using a swarm to provide coverage over unknown areas is a current
 
 The concept behind the field effect expansion is to increase both the repulsion and cohesion fields over a period of time. This increase in the field effects makes the agents increase the distance between each other expanding the swarm as a whole. The expansion increases until, due to boundary compression, the swarm is unable to expand further. In an extreme case the expansion will result in a set of field effects that create a mesh based swarm structure rather than the desired hexagonal structure that the field effects should create. Identifying either the change in modality or the inability to expand, which can be identified by the \textit{inter-agent vector magnitude} increase or a reduction in the inter-agent distance stability indicates area saturation has occurred.
 
-To test this hypothesis a swarm is modelled in the simulator. The model consists of an obstacle-based enclosed space and a swarm consisting of 60 agents. The experiments parameters for the simulation are shown in~table~\ref{tab:FillParameters1}
+To test this hypothesis a swarm is modelled in the simulator. The model consists of an obstacle-based enclosed space and a swarm consisting of 60 agents. The experiments parameters for the simulation are shown in~Table~\ref{tab:FillParameters1}
 
 \begin{table}[H]
 \begin{center}
@@ -528,7 +528,7 @@ Speed         & 20 units/s & agent speed\\ \hline
 \end{center}
 \end{table}
 
-The field effects are incremented in turn, neighbour range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:emerge:BaselineConcaveReduction} shows the field effect settings that are used for the simulation. The field effect are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. 
+The field effects are incremented in turn, neighbour range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effect are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. 
 
 \begin{table}[H]
 \begin{center}
