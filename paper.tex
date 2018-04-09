@@ -497,21 +497,15 @@ Figure~\ref{coord:BaselineMagnitude1} shows the evolution of the metric in time.
 %% \caption{Baseline internal movement - magnitude\label{coord:BaselineMagnitude1}}
 %% \end{figure}
 
-\section{Application: Flood filling\label{metric:ApplicationFloodFilling}}
+\section{Application: Flood filling}\label{metric:ApplicationFloodFilling}
 
 Area flooding is a technique used to fill an enclosed area with agents such that they are distributed as `effectively' as possible throughout an area. An optimum distribution of agents is not necessarily an even distribution. The distribution of the agents is governed by the field effects and the interaction of agents with obstacles (\textit{interaction vectors}). 
-
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD1}
-{Flood fill Start.\label{emerge:FLOOD1}}
-
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD6}
-{Flood fill End.\label{emerge:FLOOD6}}
 
 Filling an area can be applied to tasks that require an unknown environment to be analysed or surveyed. Consider a disaster area following a landslide or a building collapsing following an earthquake; the movement in the land and buildings will produce spaces that are unmapped. The unmapped areas may require investigation to locate people, resources or to create some form of sensor network to analyse the conditions within the area such as creating a heat map or to identify the location toxic gases. 
 
 The concept of using a swarm to provide coverage over unknown areas is a current area of research. Alvissalim et al. (2012) discuss the application of commercially available drones to provide a communication infrastructure across an unknown disaster areas~\cite{AZHMJJM:12}. Scheutz and Bauer (2006) use both cohesion and repulsion as a mechanism to create coverage of an area that requires protection in an adversarial environment~\cite{SB:06}.
 
-The concept behind the field effect expansion is to increase both the repulsion and cohesion fields over a period of time. This increase in the field effects makes the agents increase the distance between each other expanding the swarm as a whole. The expansion increases until, due to boundary compression, the swarm is unable to expand further. In an extreme case the expansion will result in a set of field effects that create a mesh based swarm structure rather than the desired hexagonal structure that the field effects should create. Identifying either the change in modality or the inability to expand, which can be identified by the \textit{inter-agent vector magnitude} increase or a reduction in the inter-agent distance stability indicates area saturation has occurred.
+The concept behind the field effect expansion is to increase both the repulsion and cohesion fields over a period of time. This increase in the field effects makes the agents increase the distance between each other expanding the swarm as a whole. The expansion increases until, due to boundary compression, the swarm is unable to expand further. In an extreme case the expansion will result in a set of field effects that create a mesh based swarm structure rather than the desired hexagonal structure that the field effects should create. Identifying the \textit{cohesion/repulsion metric} falling below zero indicates area saturation has occurred.
 
 To test this hypothesis a swarm is modelled in the simulator. The model consists of an obstacle-based enclosed space and a swarm consisting of 60 agents. The experiments parameters for the simulation are shown in~Table~\ref{tab:FillParameters1}
 
@@ -528,7 +522,13 @@ Speed         & 20 units/s & agent speed\\ \hline
 \end{center}
 \end{table}
 
-The field effects are incremented in turn, neighbour range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effect are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. 
+The field effects are incremented in turn, cohesion range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effects are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. Figure \ref{emerge:FLOOD1} shows the initial swarm deployment and Figure \ref{emerge:FLOOD6} shows the final swarm distribution for the simulation. 
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD1}
+{Flood fill Start.\label{emerge:FLOOD1}}
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD6}
+{Flood fill End.\label{emerge:FLOOD6}}
 
 \begin{table}[H]
 \begin{center}
@@ -541,7 +541,7 @@ Neighbour Distance & 60 & 70 & -  & 80 & -  & 90 & -  & units\\  \hline
 \end{center}
 \end{table}
 
-Figure~\ref{emerge:FIELDFILL-MAG} shows the resultant magnitude for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm and it is unable to expand the inter-agent distances.
+Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm which indictaes the area is filled.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-MAG}
 {Cohesion/Repulsion metric 0-120 seconds.\label{emerge:FIELDFILL-MAG}}
@@ -553,7 +553,7 @@ Figure~\ref{emerge:FIELDFILL-MAG} shows the resultant magnitude for the swarm fo
 % \caption{Magnitude metric 0-120 seconds\label{emerge:FIELDFILL-MAG}}
 % \end{figure}
 
-Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 12 seconds.
+Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-DIST}
 {Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
@@ -573,9 +573,12 @@ The distance-based metric measures swarm structure in terms of position of agent
 
 The distance-based metric provides an analysis of the distribution of the agents at a point in time and allows the agitation of the swarm to be assessed. It does not take into account the possible distribution of agents that the field effects \emph{could} produce.
 
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects2}
+{Heterogeneous field effects.\label{additional:fieldsWork}}
+
 The \emph{cohesion/repulsion} metric provides an indication of a swarm's potential movement. This is independent of the physical distribution of the agents within the swarm. The lack of dependence on the physical distribution allows the metric to be used in heterogeneous field effect swarms~(Figure~\ref{additional:fieldsWork}) where the physical distribution of agents may vary due to the varied field effect ranges. 
 
-In a homogeneous field effect swarm the two metrics together provide a deeper evaluation of a swarm's structure and `potential'. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} rises: This indicates `something' is confining the swarm's distribution. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
+In a homogeneous field effect swarm the two metrics together provide a deeper evaluation of a swarm's structure and `potential'. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} rises: This indicates `something' is confining the swarm's distribution as discussed in Section \ref{metric:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -587,10 +590,11 @@ In a homogeneous field effect swarm the two metrics together provide a deeper ev
 \section{Future work\label{metric:Future}}
 The detection of a swarm's perimeter \cite{MD:09, MJ:08, ZAPS:07, JG:13} identifies a subset of a swarm which can be used for coordination. The use of the perimeter detection allows a swarm to be used in many different ways~\cite{ZFG:13, AKK:08, APZDAMC:09, AZDPS:11}. 
 
-A possible adaptation to this area of research is to use the swarm perimeter detection to identify a subset of agents then reduce the field effects (repulsion and cohesion) of those agents to increase the agent density at the perimeter. Increasing the density would allow increased coverage of any sensor arrays that the swarm was using at the swarm edge. The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. The cohesion/repulsion metric discussed in this paper would still work within this environment as a tool to identify a swarm's structure. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
+A possible adaptation to this area of research is to use the swarm perimeter detection to identify a subset of agents then reduce the field effects (repulsion and cohesion) of those agents to increase the agent density at the perimeter, this is similar to having hetrogenious swarm structures as shown in Figure~\ref{additional:fieldsWork}. Increasing the density would allow increased coverage of any sensor arrays that the swarm was using at the swarm edge. 
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects2}
-{Complex swarm interactions.\label{additional:fieldsWork}}
+The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. The cohesion/repulsion metric discussed in this paper would still work within this environment as a tool to identify a swarm's structure. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
+
+\newpage
 
 \bibliographystyle{plain}
 \bibliography{thesis}
