@@ -336,6 +336,11 @@ INPUT figures/BaselineMagnitude1.pdf
 INPUT ./figures/BaselineMagnitude1.pdf
 INPUT notaglineLogo.png
 INPUT ./notaglineLogo.png
+INPUT figures/FLOOD0.pdf
+INPUT ./figures/FLOOD0.pdf
+INPUT ./figures/FLOOD0.pdf
+INPUT figures/FLOOD0.pdf
+INPUT ./figures/FLOOD0.pdf
 INPUT figures/FLOOD1.pdf
 INPUT ./figures/FLOOD1.pdf
 INPUT ./figures/FLOOD1.pdf

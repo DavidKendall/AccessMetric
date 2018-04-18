@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex paper"] 1523309320 "paper.aux" "paper.bbl" "paper" 1523309320
+["bibtex paper"] 1524035264 "paper.aux" "paper.bbl" "paper" 1524035264
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1523309320 7145 32ceb5e14e2b15ccb1b7f896d159c565 ""
+  "paper.aux" 1524035264 7278 2470b075ce2bd6cb3889512514ee9949 ""
   "paper.bcf" 0 -1 0 ""
   "thesis.bib" 1489839392 170806 7378c9d1e07c857d0fc33d34cbd4b9c3 ""
   (generated)
-  "paper.bbl"
   "paper.blg"
-["pdflatex"] 1523309320 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1523309320
+  "paper.bbl"
+["pdflatex"] 1524035264 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1524035264
   "/etc/texmf/web2c/texmf.cnf" 1521388104 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1523309320 45886 fd5549f20b4ab04a26994d1c12d4a64a ""
+  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1524035263 45912 dce9c0ae130360a1cba1de9793f746cf ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -129,7 +129,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1521388940 73733 f9b5667691d3ab97dd84123edfa5bdb6 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1521388943 812749 6eb0d8af288f118b4a07fa6608d025f8 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1523559605 813572 ecc3a741d190df3beb360ea57e680d0a ""
   "IEEEtran.cls" 1519301225 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "Images/brock.pdf" 1519301226 167845 87dfb3b7d2be0c4e5e51bc5f500c86d2 ""
   "Images/eliot.pdf" 1519301226 9324 a224462daecf690d1842d74712292003 ""
@@ -140,6 +140,7 @@
   "figures/BaselineMagnitude1.pdf" 1523307202 221737 04f459e398822c55d323bb54a9b5a431 ""
   "figures/FIELDFILL-DIST.pdf" 1523307456 254903 cd786b938212690f2025b9cfc94643ff ""
   "figures/FIELDFILL-MAG.pdf" 1523307509 254802 257bbb652a4968e8dafa1aba278e8df1 ""
+  "figures/FLOOD0.pdf" 1524035167 294722 47e0a37f49ae808fafcc3d1830d3edea ""
   "figures/FLOOD1.pdf" 1522324849 375759 46c592c5499c23f9790c2c8d11029e52 ""
   "figures/FLOOD6.pdf" 1522324855 475844 66247dd5fb4e404301f413c3f02053e9 ""
   "figures/FieldEffects.pdf" 1519636250 46285 bbef7dbaa51599267b38adf782f38b7e ""
@@ -154,10 +155,10 @@
   "figures/StabilityNullVector3.pdf" 1519301226 8933 3200181ee98b99107d4486303c6b411c ""
   "ieeeaccess.cls" 1508979826 43839 3abf959902254cbaf82e6ce14f087bf5 ""
   "notaglineLogo.png" 1519301226 3150 e273b7aed356b5f76c6d0b072166d68c ""
-  "paper.aux" 1523309320 7145 32ceb5e14e2b15ccb1b7f896d159c565 ""
-  "paper.bbl" 1523309320 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
-  "paper.tex" 1523309320 45886 fd5549f20b4ab04a26994d1c12d4a64a ""
+  "paper.aux" 1524035264 7278 2470b075ce2bd6cb3889512514ee9949 ""
+  "paper.bbl" 1524035264 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
+  "paper.tex" 1524035263 45912 dce9c0ae130360a1cba1de9793f746cf ""
   (generated)
   "paper.log"
-  "paper.pdf"
   "paper.aux"
+  "paper.pdf"
