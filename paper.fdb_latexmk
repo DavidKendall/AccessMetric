@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex paper"] 1524051011 "paper.aux" "paper.bbl" "paper" 1524054262
+["bibtex paper"] 1524149827 "paper.aux" "paper.bbl" "paper" 1524150428
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1524051091 7276 d80ecd9886f54bcc86b91f8a0f834304 ""
+  "paper.aux" 1524150428 7241 1b37931a64987fc9375c7d1ccf8d352e ""
   "paper.bcf" 0 -1 0 ""
-  "thesis.bib" 1489839392 170806 7378c9d1e07c857d0fc33d34cbd4b9c3 ""
+  "thesis.bib" 1524148858 170806 7378c9d1e07c857d0fc33d34cbd4b9c3 ""
   (generated)
-  "paper.bbl"
   "paper.blg"
-["pdflatex"] 1524051091 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1524054262
-  "/etc/texmf/web2c/texmf.cnf" 1521388104 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1524054262 46409 706639860a43d089482e1e51fcc20640 ""
+  "paper.bbl"
+["pdflatex"] 1524150427 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1524150428
+  "/etc/texmf/web2c/texmf.cnf" 1521547201 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1524150427 46843 916acd7cb16799d822aa08370fdde5c7 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -128,8 +128,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1480098843 4962 9c1069474ff71dbc47d5006555e352d3 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1521388940 73733 f9b5667691d3ab97dd84123edfa5bdb6 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1523559605 813572 ecc3a741d190df3beb360ea57e680d0a ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1521547689 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1521547704 4127543 3eb77a06a225e180c64399c387d8f382 ""
   "IEEEtran.cls" 1519301225 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "Images/brock.pdf" 1519301226 167845 87dfb3b7d2be0c4e5e51bc5f500c86d2 ""
   "Images/eliot.pdf" 1519301226 9324 a224462daecf690d1842d74712292003 ""
@@ -155,10 +155,10 @@
   "figures/StabilityNullVector3.pdf" 1519301226 8933 3200181ee98b99107d4486303c6b411c ""
   "ieeeaccess.cls" 1508979826 43839 3abf959902254cbaf82e6ce14f087bf5 ""
   "notaglineLogo.png" 1519301226 3150 e273b7aed356b5f76c6d0b072166d68c ""
-  "paper.aux" 1524051091 7276 d80ecd9886f54bcc86b91f8a0f834304 ""
-  "paper.bbl" 1524051011 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
-  "paper.tex" 1524054262 46409 706639860a43d089482e1e51fcc20640 ""
+  "paper.aux" 1524150428 7241 1b37931a64987fc9375c7d1ccf8d352e ""
+  "paper.bbl" 1524149827 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
+  "paper.tex" 1524150427 46843 916acd7cb16799d822aa08370fdde5c7 ""
   (generated)
-  "paper.aux"
-  "paper.log"
   "paper.pdf"
+  "paper.log"
+  "paper.aux"
