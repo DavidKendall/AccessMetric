@@ -52,24 +52,27 @@ Newcastle upon Tyne, NE1 8ST}
 
 
 \begin{abstract}
-An important criterion in the assessment of swarm coordination algorithms is
-the extent to which they cause unnecessary movement, i.e. movement which
-occurs as a side affect of the algorithm rather than the the intended
-function. This paper examines the widely used distance metric as a mechanism
-to measure the internal movement of agents and introduces a new
-\emph{cohesion/repulsion metric}.  Both metrics are based upon the resultant
-internal movement of a swarm identified by analysing the changes in the
-inter-agent interactions. The two metrics differ in their approach to
-identifying the changes. The distance metric uses variations in the
-inter-agent distances and the new metric uses the resultant magnitudes from
-the agents' \emph{inter-agent vector magnitudes}  which we claim offers a
-number of advantages over the distance metric.  Both metrics allow a
-comparison of the effects of different swarming algorithms on a swarm's
-structure to identify the `level' of change in a swarm's internal structure
-which is an indication of the amount of unnecessary movement an algorithm
-creates.  In addition the \emph{cohesion/repulsion} metric also identifies a
-swarm as expanding or cohesive which can be used in the analysis of a swarm 
-filling a space to identify an exit condition.
+  An important criterion in the assessment of swarm coordination algorithms is
+  the extent to which they cause unnecessary movement, i.e. movement which
+  occurs as a side effect of the algorithm rather than from the fulfilment of
+  the intended function of the swarm. This paper examines the widely used
+  distance metric as a mechanism to measure the internal movement of agents,
+  introduces an entirely new \emph{cohesion/repulsion metric}, and compares and
+  contrasts the two.  Both metrics are based upon the resultant internal
+  movement of a swarm, identified by analysing changes in inter-agent
+  interactions. The metrics differ in their approach to identifying the
+  changes. The distance metric uses variations in inter-agent distances,
+  whereas the new metric is based on the magnitudes of \emph{inter-agent
+  cohesion and repulsion vectors}. The cohesion/repulsion metric offers a
+  number of advantages over the distance metric.  Both metrics allow a
+  comparison of the effects of different swarming algorithms on the `amount of
+  change' in a swarm's internal structure, giving an indication of the amount
+  of unnecessary movement that an algorithm generates. In addition, the
+  \emph{cohesion/repulsion} metric also allows the identification of the
+  essential characteristic of a swarm as `expanding', `stable', or
+  `contracting'. This opens up the possibility of using the cohesion/repulsion
+  metric in ways that are not possible with the distance metric in practical
+  swarming applications, such as area filling and reconnaissance.
 \end{abstract}
 
 \begin{keywords}
@@ -411,9 +414,9 @@ An agent's \emph{resultant magnitude} is identified by Gazi and Passino~\cite{GP
 
 The cohesion/repulsion internal movement (\emph{cohesion/repulsion metric}) is measured by identifying the balance between the cohesion and repulsion vectors between agents as shown in~(\ref{eq:CohesionRepulsion}). This is derived from the \emph{inter-agent cohesion/repulsion vector} as shown in~(\ref{eq:InterAgentMovementDirectional1}). `Jitter' in the case of the agent resultant \emph{cohesion/repulsion metric} is measured as the deviation created by the inter-agent relationships. The identification of this deviation produces the clarifying component of the agent \emph{cohesion/repulsion metric}.
 %% The magnitude based metric identifies the resultant internal magnitude (vector magnitude) through the cohesive and repulsive magnitudes that exist between each agent pair in a swarm. 
-An agent's resultant vector magnitude is used as a scalar values to give an overall `size' to the agent relationship. The resultant scalar value is then modified based upon the `size' of the two relationship magnitudes.
+An agent's resultant vector magnitude is used as a scalar value to give an overall `size' to the agent relationship. The resultant scalar value is then modified based upon the `size' of the two relationship magnitudes.
 
-This paper will refer to the scalared resultant magnitude as the \emph{`cohesion/repulsion metric'} of the relationship. The `state' of a swarm is therefore the effect the environmental constraints and algorithms have upon the agent resultant magnitude. The agent's \emph{`cohesion/repulsion metric'} can be considered part of the `quality' measure for a swarm's performance.
+This paper will refer to the scalar resultant magnitude as the \emph{`cohesion/repulsion metric'} of the relationship. The `state' of a swarm is therefore the effect the environmental constraints and algorithms have upon the agent resultant magnitude. The agent's \emph{`cohesion/repulsion metric'} can be considered part of the `quality' measure for a swarm's performance.
 
 The resultant \emph{cohesion/repulsion metric}, which is a scalar, is generated by comparing the length of the cohesion and repulsion vector magnitudes. If the cohesion magnitude is larger than the repulsion vector magnitude the resultant length is considered to be positive. If the repulsion vector magnitude is larger than the cohesion vector magnitude the resultant length is considered to be negative. 
 
@@ -600,7 +603,7 @@ A possible adaptation to this area of research is to use the swarm perimeter det
 
 The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. The cohesion/repulsion metric discussed in this paper would still work within this environment as a tool to identify a swarm's structure. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
 
-\newpage
+\clearpage
 
 \bibliographystyle{plain}
 \bibliography{thesis}
