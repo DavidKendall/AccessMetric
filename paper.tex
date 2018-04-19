@@ -96,7 +96,7 @@ This paper presents a swarm model and then applies the two metrics to this model
 \section{Swarm modelling}\label{SwarmModelling}
 Currently, much swarm research uses field effects as the method of modelling inter-agent interactions~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02, GP:04, GP:04a, GP:05, GP:11, MYP:09}. The models usually use two field effects to implement the swarming characteristic. These effects are \emph{cohesion}, to draw agents closer, and \emph{repulsion} to prevent agents colliding. \emph{Field effects} have ranges around an agent and determine the effect other agents have upon it's movement~(Figure~\ref{methods:FieldEffects}). It is usual for the cohesion field to have a radius $C_b$ which is larger than the repulsion radius $R_b$. When an agent ($b'$) moves into the \emph{neighbour field} of an agent ($b$) then $b'$ is said to be a neighbour of $b$ and is subject to cohesion. When an agent $b'$ moves into the repulsion field of $b$ then $b$ also subjected to repulsion. When the repulsion magnitude exceeds the cohesion magnitude the agent will have a tendency to move away from $b'$, i.e. repelled. When an agent $b$ moves too close to an obstacle, i.e. within the obstacle repulsion range $O_b$, it has it's repulsion vector applied and the agent will tend towards moving away from the obstacle.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{figures/FieldEffects}
 {Agent field effects.\label{methods:FieldEffects}}
 
 %% \begin{figure}[H]
@@ -201,7 +201,7 @@ Speed & 20 & units/s\\  \hline
 
 Figure~\ref{methods:Stability1} shows two agents within each other's cohesion fields but sufficiently distant to be outside of the repulsion fields. In this case $|k_cv_c| > 0$ and $|k_rv_r| = 0$: the result is the agent's resultant magnitude $v(b)$ causes the agent to move towards is neighbour $b'$. Likewise the neighbour's resultant magnitude $v(b')$ will cause it to move towards $b$. Table~\ref{tab:SampleReplusion0} shows the repulsion magnitude with a value of 0. The only influence on the agent pairs are cohesive vectors. 
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/Stability1}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability1}
 {Internal movement cohesion (no repulsion).\label{methods:Stability1}}
 
 %% \begin{figure}[H]
@@ -229,7 +229,7 @@ Figure~\ref{methods:Stability2} shows two agents close together with repulsion d
 
 Table~\ref{tab:SampleReplusionPositive} shows the repulsion magnitude with a value greater than the cohesion magnitude.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/Stability2}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability2}
 {Internal movement repulsion.\label{methods:Stability2}}
 
 %% \begin{figure}[H]
@@ -255,7 +255,7 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 
 Figure~\ref{methods:Stability3} shows two agents close together but with cohesion vector magnitudes greater than the repulsion magnitudes $|k_cv_c|~>~|k_rv_r|$. The resultant vector draws the agents together. The magnitude of the resultant cohesion vector reduces due to the cancelling effect of the repulsion vector. Table~\ref{tab:SampleCohesionPositive} shows a data extract with the cohesion magnitude greater than repulsion.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/Stability3}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability3}
 {Internal movement cohesion and repulsion.\label{methods:Stability3}}
 
 %% \begin{figure}[H]
@@ -281,7 +281,7 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} & {\color{red}Repulsion} 	\
 
 Figure~\ref{methods:Stability4} shows two agents close together with $|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \emph{null vector} and the agents have no overall influence upon each other due to the magnitude of the resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of data from the simulator. The data shows near equilibrium but due to the dynamic nature of a swarm system no agents meet the condition fully. 
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/Stability4}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability4}
 {Internal movement equilibrium.\label{methods:Stability4}}
 
 %% \begin{figure}[H]
@@ -526,12 +526,17 @@ Speed         & 20 units/s & agent speed\\ \hline
 \end{center}
 \end{table}
 
-The field effects are incremented in turn, cohesion range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effects are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. Figure \ref{emerge:FLOOD1} shows the initial swarm deployment and Figure \ref{emerge:FLOOD6} shows the final swarm distribution for the simulation. 
+The field effects are incremented in turn, cohesion range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effects are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. Figure \ref{emerge:FLOOD0} shows the initial swarm deployment.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD1}
-{Flood fill Start.\label{emerge:FLOOD1}}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD0}
+{Flood fill Start.\label{emerge:FLOOD0}}
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FLOOD6}
+Figure ~\ref{emerge:FLOOD1} shows the point a which data logging starts. The swarm at this stage has expanded into the space but is not filling it. This presents itself as a positive cohesion/repulsion metric value which indicates the swarm is cohesive and the agents are still ``pulling" together. Figure \ref{emerge:FLOOD6} shows the final swarm distribution for the simulation, at this point the cohesion/repulsion metric has fell below zero indicating the swarm is trying to expand. 
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD1}
+{Data Capture Start.\label{emerge:FLOOD1}}
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD6}
 {Flood fill End.\label{emerge:FLOOD6}}
 
 \begin{table}[H]
@@ -547,7 +552,7 @@ Neighbour Distance & 60 & 70 & -  & 80 & -  & 90 & -  & units\\  \hline
 
 Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm which indicates the area is filled.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-MAG}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=13cm]{figures/FIELDFILL-MAG}
 {Cohesion/Repulsion metric 0-120 seconds.\label{emerge:FIELDFILL-MAG}}
 
 % \begin{figure}[H]
@@ -559,7 +564,7 @@ Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the sw
 
 Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=16cm]{figures/FIELDFILL-DIST}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=13cm]{figures/FIELDFILL-DIST}
 {Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
 
 % \begin{figure}[H]
@@ -598,7 +603,7 @@ A possible adaptation to this area of research is to use the swarm perimeter det
 
 The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. The cohesion/repulsion metric discussed in this paper would still work within this environment as a tool to identify a swarm's structure. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
 
-\newpage
+\clearpage
 
 \bibliographystyle{plain}
 \bibliography{thesis}
