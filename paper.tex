@@ -38,7 +38,7 @@
 \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
 \doi{10.1109/ACCESS.2017.DOI}
 
-\title{An Improved Metric for the Analysis of Swarms}
+\title{A New Metric for the Analysis of Swarms}
 \author{\uppercase{Neil Eliot}\authorrefmark{1},
 \uppercase{David Kendall\authorrefmark{1}, and Michael Brockway\authorrefmark{1}}}
 \address[1]{Northumbria University, Department of Computing and Information Sciences, 
@@ -52,27 +52,19 @@ Newcastle upon Tyne, NE1 8ST}
 
 
 \begin{abstract}
-  An important criterion in the assessment of swarm coordination algorithms is
-  the extent to which they cause unnecessary movement, i.e. movement which
-  occurs as a side effect of the algorithm rather than from the fulfilment of
-  the intended function of the swarm. This paper examines the widely used
-  distance metric as a mechanism to measure the internal movement of agents,
-  introduces an entirely new \emph{cohesion/repulsion metric}, and compares and
-  contrasts the two.  Both metrics are based upon the resultant internal
-  movement of a swarm, identified by analysing changes in inter-agent
-  interactions. The metrics differ in their approach to identifying the
-  changes. The distance metric uses variations in inter-agent distances,
-  whereas the new metric is based on the magnitudes of \emph{inter-agent
-  cohesion and repulsion vectors}. The cohesion/repulsion metric offers a
-  number of advantages over the distance metric.  Both metrics allow a
-  comparison of the effects of different swarming algorithms on the `amount of
-  change' in a swarm's internal structure, giving an indication of the amount
-  of unnecessary movement that an algorithm generates. In addition, the
-  \emph{cohesion/repulsion} metric also allows the identification of the
+  % An important criterion in the assessment of swarm coordination algorithms is
+  % the extent to which they cause unnecessary movement, i.e. movement which
+  % occurs as a side effect of the algorithm rather than from the fulfilment of
+  % the intended function of the swarm. 
+  A widely used metric for the assesment of swarm coordination algortithms is a metric based upon the distance between agents.
+  This paper examines this metric and introduces an entirely new metric based upon the magnitude of cohesion and repulsion between agents, comparing and
+  contrasting the two.  
+  The \emph{cohesion/repulsion} metric offers a
+  number of advantages over the distance metric. The
+  \emph{cohesion/repulsion} metric allows the identification of the
   essential characteristic of a swarm as `expanding', `stable', or
-  `contracting'. This opens up the possibility of using the cohesion/repulsion
-  metric in ways that are not possible with the distance metric in practical
-  swarming applications, such as area filling and reconnaissance.
+  `contracting'. This is not possible with the distance metric. Practical
+  swarming applications where this might apply include area filling and reconnaissance.
 \end{abstract}
 
 \begin{keywords}
@@ -382,8 +374,8 @@ The mean distance for a swarm is calculated by~(\ref{eq:SwarmStabilityDistance2}
 \mu_d(S) = \frac{\mathlarger{\sum_{b \in S}}~\mathlarger{\sum_{b' \in nbr(b)}}|bb'|}{\mathlarger{\sum_{b \in S}|nbr(b)|}}
 \end{equation}
 
-\section{Standard deviation in distance metric}\label{Section:VarianceInDistance}
-The mechanism above provides an overall indication of the distribution of the agents. The model for a swarm $S$ ($\mu_d(S)$) is not sufficient to give an indication of the internal distribution of the agents. The standard deviation clarifies the distribution within the swarm as shown in~(\ref{eq:SwarmStabilityDistance3}). 
+%\section{Standard deviation in distance metric}\label{Section:VarianceInDistance}
+The mean distance provides a indication of the large scale structure of the swarm. However it is not sufficient to give an indication of the internal distribution of the agents. The standard deviation clarifies the distribution within the swarm as shown in~(\ref{eq:SwarmStabilityDistance3}). 
 
 %% $(|bb'| - \mu(S))^2$ is the square of the difference in a distance to the mean and $\sum_{b \in S}~\sum_{b' \in nbr(b)}$ calculates the number of inter-agent interactions.
 
@@ -563,7 +555,7 @@ Fig.~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swar
 % \caption{Magnitude metric 0-120 seconds\label{emerge:FIELDFILL-MAG}}
 % \end{figure}
 
-Fig.~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds.
+Fig.~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds. There is no feature of this graph which indicates that the area is filled. The cohesion/repulsion metric clearly tells us more. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=13cm]{figures/FIELDFILL-DIST}
 {Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
@@ -598,11 +590,13 @@ In a homogeneous field effect swarm the two metrics together provide a deeper ev
 %% \end{figure}
 
 \section{Future work\label{metric:Future}}
+The metric can be applied to the analysis of the effects of coordination algorithms upon a swarm's structure. An application to floodfilling has just been discussed. The metric can also be applied to identifying the effects a `healing' algorithm may have upon a swarm's structure. By this we mean an algorithm which removes `voids' in a swarm.
+
 The detection of a swarm's perimeter \cite{MD:09, MJ:08, ZAPS:07, JG:13} identifies a subset of a swarm which can be used for coordination. The use of the perimeter detection allows a swarm to be used in many different ways~\cite{ZFG:13, AKK:08, APZDAMC:09, AZDPS:11}. 
 
 A possible adaptation to this area of research is to use the swarm perimeter detection to identify a subset of agents then reduce the field effects (repulsion and cohesion) of those agents to increase the agent density at the perimeter, this is similar to having heterogeneous swarm structures as shown in Fig.~\ref{additional:fieldsWork}. Increasing the density would allow increased coverage of any sensor arrays that the swarm was using at the swarm edge. 
 
-The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. The cohesion/repulsion metric discussed in this paper would still work within this environment as a tool to identify a swarm's structure. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
+The issue with introducing heterogeneous field effects is that the existing distance-based metric would not allow the swarm's structure to be analysed correctly. We believe that cohesion/repulsion metric discussed in this paper will still identify the swarm's structure when the swarm is hetrogenious. This is due to the metric being based upon inter-agent effects rather than physical distribution. 
 
 \clearpage
 

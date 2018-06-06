@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex paper"] 1524149827 "paper.aux" "paper.bbl" "paper" 1524150428
+["bibtex paper"] 1528287628 "paper.aux" "paper.bbl" "paper" 1528287629
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1524150428 7241 1b37931a64987fc9375c7d1ccf8d352e ""
+  "paper.aux" 1528287629 7094 3f35e101c902730d8d53a56939c471b0 ""
   "paper.bcf" 0 -1 0 ""
   "thesis.bib" 1524148858 170806 7378c9d1e07c857d0fc33d34cbd4b9c3 ""
   (generated)
-  "paper.blg"
   "paper.bbl"
-["pdflatex"] 1524150427 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1524150428
+  "paper.blg"
+["pdflatex"] 1528287628 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1528287629
   "/etc/texmf/web2c/texmf.cnf" 1521547201 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1524150427 46843 916acd7cb16799d822aa08370fdde5c7 ""
+  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1528287627 46710 68eca1df6e65b2079bef635fa499a04c ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -155,10 +155,10 @@
   "figures/StabilityNullVector3.pdf" 1519301226 8933 3200181ee98b99107d4486303c6b411c ""
   "ieeeaccess.cls" 1508979826 43839 3abf959902254cbaf82e6ce14f087bf5 ""
   "notaglineLogo.png" 1519301226 3150 e273b7aed356b5f76c6d0b072166d68c ""
-  "paper.aux" 1524150428 7241 1b37931a64987fc9375c7d1ccf8d352e ""
-  "paper.bbl" 1524149827 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
-  "paper.tex" 1524150427 46843 916acd7cb16799d822aa08370fdde5c7 ""
+  "paper.aux" 1528287629 7094 3f35e101c902730d8d53a56939c471b0 ""
+  "paper.bbl" 1528287628 6980 ddb0427051c93f92af83f1a409bf20ea "bibtex paper"
+  "paper.tex" 1528287627 46710 68eca1df6e65b2079bef635fa499a04c ""
   (generated)
-  "paper.pdf"
-  "paper.log"
   "paper.aux"
+  "paper.log"
+  "paper.pdf"
