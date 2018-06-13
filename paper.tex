@@ -357,7 +357,7 @@ Navarro and Fernando describe a \emph{mean distance error} metric that is based 
 %% \section{Distance metric internal movement}
 %% The distance based internal movement is measured by identifying the mean length of the vectors between an agent and its neighbours. As with the \emph{agent resultant magnitude} a coordination algorithm produces `jitter' which is the variations from the mean. In the case of the distance based metric the jitter is identified by the changes in the distances rather than the changes in vector magnitude (\emph{agent resultant magnitude}). The distance metric is the mean and the standard deviation `jitter' of the inter-agent distances.
 
-\section{Calculating distance internal movement}
+% \section{Calculating distance internal movement}
 Equation~(\ref{eq:SwarmStabilityDistance1}) computes the mean distance of an agent to its neighbours $nbr(b)$. 
 %% The relative position vector generated for an agent $b$ to its neighbour $b'$, $bb'$, is shown in~(\ref{eq:FlyToCentre1}). The magnitude of that vector gives the distance between two agents. For an individual agent the average magnitude $\mu_d(b)$ is calculated as \ref{eq:SwarmStabilityDistance1} where $b$ is the agent and $|nbr(b)|$ is the number of neighbours.
 
@@ -422,7 +422,7 @@ The \emph{cohesion/repulsion metric} on its own does not give a complete measure
  
 The \emph{cohesion/repulsion metric} provides a view of the swarm's state through the balance between the repulsive and the cohesive vectors that are being applied to each agent. The deviation component identifies the degree to which the swarm has stabilised. The ideal status for inter-agent interactions would be for the agents to have a (\emph{cohesion/repulsion metric}) of zero or above. This would indicate that the agents are distributed such that they are at their distribution limit (outer most range of the cohesion field) or at a level that causes the agents to `pull' together. The ideal degree of deviation is zero as this indicates an even distribution of agents. These two aspects of a swarm's features are not considered by Gazi and Passino~\cite{GP:11} or Barnes et al~\cite{BFV:07} as a means of quantifying the structure of a swarm in terms of stability.
 
-\section{Cohesion/repulsion internal movement model}\label{Section:StabilityModel}
+% \section{Cohesion/repulsion internal movement model}\label{Section:StabilityModel}
 Section~\ref{Section:StabilityMagnitude}~discussed calculation of resultant cohesion~(\ref{eq:FlyToCentre1}) and resultant repulsion~(\ref{eq:Repulsion1}) vectors for each agent deriving a combined \emph{cohesion/repulsion vector} using~(\ref{eq:InterAgentMovement2}). 
 
 %% This value represents the overall `potential' of an agent. This vector when normalised produces a component of the \emph{movement-destination vector} for a swarm. If the total cohesion/repulsion vector is zero (null vector) then the agent will not move. $M(b)$ is the total \emph{cohesion/repulsion vector} for agent $b$ defined by:

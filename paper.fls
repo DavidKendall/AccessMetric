@@ -335,6 +335,8 @@ INPUT figures/BaselineMagnitude1.pdf
 INPUT ./figures/BaselineMagnitude1.pdf
 INPUT notaglineLogo.png
 INPUT ./notaglineLogo.png
+INPUT notaglineLogo.png
+INPUT ./notaglineLogo.png
 INPUT figures/FLOOD0.pdf
 INPUT ./figures/FLOOD0.pdf
 INPUT ./figures/FLOOD0.pdf
@@ -350,8 +352,6 @@ INPUT ./figures/FLOOD6.pdf
 INPUT ./figures/FLOOD6.pdf
 INPUT figures/FLOOD6.pdf
 INPUT ./figures/FLOOD6.pdf
-INPUT notaglineLogo.png
-INPUT ./notaglineLogo.png
 INPUT figures/FIELDFILL-MAG.pdf
 INPUT ./figures/FIELDFILL-MAG.pdf
 INPUT ./figures/FIELDFILL-MAG.pdf
@@ -362,13 +362,13 @@ INPUT ./figures/FIELDFILL-DIST.pdf
 INPUT ./figures/FIELDFILL-DIST.pdf
 INPUT figures/FIELDFILL-DIST.pdf
 INPUT ./figures/FIELDFILL-DIST.pdf
-INPUT figures/FieldEffects2.pdf
-INPUT ./figures/FieldEffects2.pdf
-INPUT ./figures/FieldEffects2.pdf
-INPUT figures/FieldEffects2.pdf
-INPUT ./figures/FieldEffects2.pdf
 INPUT notaglineLogo.png
 INPUT ./notaglineLogo.png
+INPUT figures/FieldEffects2.pdf
+INPUT ./figures/FieldEffects2.pdf
+INPUT ./figures/FieldEffects2.pdf
+INPUT figures/FieldEffects2.pdf
+INPUT ./figures/FieldEffects2.pdf
 INPUT notaglineLogo.png
 INPUT ./notaglineLogo.png
 INPUT notaglineLogo.png
