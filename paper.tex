@@ -572,16 +572,14 @@ Fig.~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simulati
 %% The two metrics (distance and \emph{cohesion/repulsion}) both measure the structure of a swarm in terms of the distribution of the agents and deviations from a mean. The \emph{cohesion/repulsion} metric also allows the state of the swarm to be identified.
 %% 
 %% The distance metric is based upon the physical \emph{distribution} of the agents and the cohesion/repulsion metric is based upon the logical \emph{interaction} of the agents.
-The distance-based metric measures swarm structure in terms of position of agents.
-
-The distance-based metric provides an analysis of the distribution of the agents at a point in time and allows the agitation of the swarm to be assessed. It does not take into account the possible distribution of agents that the field effects \emph{could} produce.
+The distance-based metric measures swarm structure in terms of position of agents. It provides an analysis at a point in time but does not allow the identification of the future behaviour of a swarm as `expanding', `stable' or `contracting'. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects2}
 {Heterogeneous field effects.\label{additional:fieldsWork}}
 
-The \emph{cohesion/repulsion} metric provides an indication of a swarm's potential movement. This is independent of the physical distribution of the agents within the swarm. The lack of dependence on the physical distribution allows the metric to be used in heterogeneous field effect swarms~(Fig.~\ref{additional:fieldsWork}) where the physical distribution of agents may vary due to the varied field effect ranges. 
+The \emph{cohesion/repulsion} metric provides an indication of a swarm's potential future movement. This is independent of the physical distribution of the agents within the swarm. 
 
-In a homogeneous field effect swarm the two metrics together provide a deeper evaluation of a swarm's structure and `potential'. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} rises: This indicates `something' is confining the swarm's distribution as discussed in Section \ref{metric:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
+The two metrics together provide a deeper evaluation of a swarm's structure and `potential' thean either of the metrics alone. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} rises. This indicates `something' is confining the swarm's distribution as discussed in Section \ref{metric:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -591,10 +589,9 @@ In a homogeneous field effect swarm the two metrics together provide a deeper ev
 %% \end{figure}
 
 \section{Future work\label{metric:Future}}
-
 The new metric can be applied to the analysis of the effects of coordination
-algorithms upon a swarm's structure. An application to flood filling has just
-been discussed. The metric can also be applied to identifying the effects of 
+algorithms upon a swarm's structure. An application to flood filling has
+been discussed~(Section~\ref{metric:ApplicationFloodFilling}). The metric can also be applied to identifying the effects of 
 `healing' algorithms, e.g. to remove `voids' from a swarm. We plan
 to investigate this, and other, practical applications of the metric.
 
