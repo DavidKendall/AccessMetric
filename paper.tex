@@ -100,7 +100,7 @@ Currently, much swarm research uses field effects as the method of modelling int
 %% \end{figure}
 
 \section{Inter-agent vector magnitude effect on internal movement}\label{Section:StabilityMagnitude}
-Fig.~\ref{methods:Stability5} shows the cohesion and repulsion vector contributions to $v_c(b)$ and $v_r(b)$ due to neighbour $b'$, as given in (\ref{eq:FlyToCentre1}) and (\ref{eq:Repulsion1}). Notice that the vectors are along the line of separation $bb'$. \\
+Figure~\ref{methods:Stability5} shows the cohesion and repulsion vector contributions to $v_c(b)$ and $v_r(b)$ due to neighbour $b'$, as given in (\ref{eq:FlyToCentre1}) and (\ref{eq:Repulsion1}). Notice that the vectors are along the line of separation $bb'$. \\
 
 %% Equation (\ref{eq:Neighbours1}) identifies the set of agents that are neighbours of $b$.
 %% 
@@ -218,7 +218,7 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Fig.~\ref{methods:Stability2} shows two agents close together with repulsion dominating cohesion: $|k_cv_c|~<~|k_rv_r|$. The resultant vector directs the agents away from each other. 
+Figure~\ref{methods:Stability2} shows two agents close together with repulsion dominating cohesion: $|k_cv_c|~<~|k_rv_r|$. The resultant vector directs the agents away from each other. 
 
 Table~\ref{tab:SampleReplusionPositive} shows the repulsion magnitude with a value greater than the cohesion magnitude.
 
@@ -246,7 +246,7 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Fig.~\ref{methods:Stability3} shows two agents close together but with cohesion vector magnitudes greater than the repulsion magnitudes $|k_cv_c|~>~|k_rv_r|$. The resultant vector draws the agents together. The magnitude of the resultant cohesion vector reduces due to the cancelling effect of the repulsion vector. Table~\ref{tab:SampleCohesionPositive} shows a data extract with the cohesion magnitude greater than repulsion.
+Figure~\ref{methods:Stability3} shows two agents close together but with cohesion vector magnitudes greater than the repulsion magnitudes $|k_cv_c|~>~|k_rv_r|$. The resultant vector draws the agents together. The magnitude of the resultant cohesion vector reduces due to the cancelling effect of the repulsion vector. Table~\ref{tab:SampleCohesionPositive} shows a data extract with the cohesion magnitude greater than repulsion.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability3}
 {Internal movement cohesion and repulsion.\label{methods:Stability3}}
@@ -272,7 +272,7 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} & {\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Fig.~\ref{methods:Stability4} shows two agents close together with $|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \emph{null vector} and the agents have no overall influence upon each other due to the magnitude of the resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of data from the simulator. The data shows near equilibrium but due to the dynamic nature of a swarm system no agents meet the condition fully. 
+Figure~\ref{methods:Stability4} shows two agents close together with $|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \emph{null vector} and the agents have no overall influence upon each other due to the magnitude of the resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of data from the simulator. The data shows near equilibrium but due to the dynamic nature of a swarm system no agents meet the condition fully. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability4}
 {Internal movement equilibrium.\label{methods:Stability4}}
@@ -525,7 +525,7 @@ The field effects are incremented in turn, cohesion range followed by repulsion 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD0}
 {Flood fill Start.\label{emerge:FLOOD0}}
 
-Fig.~\ref{emerge:FLOOD1} shows the point a which data logging starts. The swarm at this stage has expanded into the space but is not filling it. This presents itself as a positive cohesion/repulsion metric value which indicates the swarm is cohesive and the agents are still ``pulling" together. Fig.~\ref{emerge:FLOOD6} shows the final swarm distribution for the simulation, at this point the cohesion/repulsion metric has fell below zero indicating the swarm is trying to expand. 
+Figure~\ref{emerge:FLOOD1} shows the point a which data logging starts. The swarm at this stage has expanded into the space but is not filling it. This presents itself as a positive cohesion/repulsion metric value which indicates the swarm is cohesive and the agents are still ``pulling" together. Fig.~\ref{emerge:FLOOD6} shows the final swarm distribution for the simulation, at this point the cohesion/repulsion metric has fell below zero indicating the swarm is trying to expand. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD1}
 {Data Capture Start.\label{emerge:FLOOD1}}
@@ -544,7 +544,7 @@ Neighbour Distance & 60 & 70 & -  & 80 & -  & 90 & -  & units\\  \hline
 \end{center}
 \end{table}
 
-Fig.~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm which indicates the area is filled.
+Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm which indicates the area is filled.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{figures/FIELDFILL-MAG}
 {Cohesion/Repulsion metric 0-120 seconds.\label{emerge:FIELDFILL-MAG}}
@@ -556,7 +556,7 @@ Fig.~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swar
 % \caption{Magnitude metric 0-120 seconds\label{emerge:FIELDFILL-MAG}}
 % \end{figure}
 
-Fig.~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds. There is no feature of this graph which indicates that the area is filled. The cohesion/repulsion metric clearly tells us more. 
+Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds. There is no feature of this graph which indicates that the area is filled. The cohesion/repulsion metric clearly tells us more. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{figures/FIELDFILL-DIST}
 {Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
