@@ -90,12 +90,15 @@ Many coordination algorithms exist to control the movement of agents within a sw
 
 Many metrics exist for the analysis of swarms. However they tend to fall into two main categories based upon the area of interest when examining a swarm's characteristics. These two techniques are \textit{Centroidal} and \textit{Inter-agent distance} based. The common denominator of both these techniques is that they \textit{measure} a swarm's agent distribution and deviations from a predicted distribution. 
 
-\textit{Centroidal} analysis: The centroid of a swarm is its \textit{centre of mass} as shown in Equation~\ref{eq:Centroid1}. This is often used as a reference point to determine the path of a swarm or to measure how agents are arranged within a swarm's structure. Navarro et al. use the centroid to produce a \textit{Mean Distance from the Boundary to the Center of the Group} metric. This metric takes the distance of each agent from the centroid and calculates the mean and the deviation to produce a measure~\cite{NIM:09}. Gazi and Passino also use this technique when analysing the stability of a swarm based on agent distribution~\cite{GP:11}. Gazi and Passino also use the centroid when analysing the stability of a swarm which is designed to maintain its position by analysing the changes in the centroids position over time~\cite{GP:04}.  
+\textit{Centroidal} analysis: The centroid of a swarm is its \textit{centre of mass} as shown in Figure~\ref{com} as a red cross. This is often used as a reference point to determine the path of a swarm or to measure how agents are arranged within a swarm's structure. Navarro et al. use the centroid to produce a \textit{Mean Distance from the Boundary to the Center of the Group} metric~\cite{NIM:09}. This metric takes the distance of each agent from the centroid and calculates the mean and the deviation to produce a measure. Gazi and Passino also use this technique when analysing the stability of a swarm based on agent distribution~\cite{GP:11}. Gazi and Passino also use the centroid when analysing the stability of a swarm which is designed to maintain its position by analysing the changes in the centroids position over time~\cite{GP:04}.  
 
-The centroid of the swarm is determined by taking the coordinate position of each agent and calculating the mean of the $x$ and $y$ positions as shown in Equation~\ref{eq:Centroid1}.
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4.5cm]{figures/com}
+{Swarm Centre of Mass.\label{com}}
+
+The centroid of the swarm ($C_s$) is determined by taking the coordinate position of each agent and calculating the mean positions as shown in Equation~\ref{eq:Centroid1} where $b_{coord}$ is each agents coordinates and $S$ is the set of agents that make up the swarm.
 
 \begin{equation}\label{eq:Centroid1}
-C_s = \frac{1}{\card{S}}\mathlarger{\sum_{b' \in S}} b'
+C_s = \frac{1}{\card{S}}\mathlarger{\sum_{b \in S}} b_{coord}
 \end{equation}
 
 \textit{Inter-Agent Distance} analysis: A basic mechanism for analysing a swarm it to analyse the separation of all of the agents with respect to each agents visible neighbours. This technique is the most popular approach to analysing a swarms structure~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02, GP:04, GP:04a, GP:05, GP:11, MYP:09}.
