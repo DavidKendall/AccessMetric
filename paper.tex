@@ -32,6 +32,8 @@
 \newtheorem{definition}{Definition}
 \newtheorem{exampleb}{Example}
 \newcommand{\subsubsubsection}[1]{\medskip\par\emph{#1:}}
+\newcommand{\card}[1]{\vert{#1}\vert}
+
 \hyphenation{op-tical net-works semi-conduc-tor}
 
 \begin{document}
@@ -58,7 +60,7 @@ Newcastle upon Tyne, NE1 8ST}
   % the intended function of the swarm. 
   A widely used metric for the analysis of swarm coordination algorithms is
   based upon the distance between agents. This paper examines this metric and
-  introduces an entirely new metric based upon the magnitude of the cohesion
+  introduces an entirely new metric based upon the field effects that createof the cohesion
   and repulsion vectors between agents. In comparing and contrasting the two
   metrics, we find that the \emph{cohesion/repulsion} metric offers a number of
   advantages over the distance metric. In particular, the
@@ -80,10 +82,24 @@ Swarming, Swarm Dynamics, Mobile Sensor Networks, Algorithms.
 \section{Introduction\label{sec:intro}}
 
 %\section{Introduction\label{methods:SwarmStability}}
-\emph{Swarming} in the animal kingdom of ants, bees, fish and birds for instance has long been studied by scientists. From these studies mathematical models and algorithms have evolved. The models and algorithms have in turn captured the interest of computing scientists who are interested in applying them to large groups of autonomous mobile \emph{agents} (`robots'). The cooperative coordination of these agents can take many forms such as following a set path~\cite{HCS:09}, existing in a static space~\cite{EP:10, GP:02, GP:04} or foraging as a colony~\cite{HER:11, GK:07}. One of the attributes of swarms that has captured the interest of scientists is that the models and algorithms used to coordinate them are generally sets of simple rules. These simple rules cause the agents to appear to work cooperatively. These rules can also generate movement that does not contribute to the goal of the swarm this movement is a direct result of the agents attempting to move towards an optimum position within the structure. This internal movement can be identified by analysing the changes in the inter-agent interactions. Measuring this unnecessary movement allows the effectiveness of a swarming algorithm to be evaluated. If the internal movement can be reduced then stability of the swarm is improved and more of the swarms energy is focused on the goal. Reducing the internal movement also provides a more stable platform for the deployment of sensor arrays. Both metrics allow this evaluation to be carried out when all the sensor ranges are the same however the distance metric is not able to identify the internal movement accurately when the sensor ranges of each agent varies producing varying distances even though the interactions at the magnitude level indicates the agents are in fact stable and optimum. This paper discusses the two metrics and how they differ in their approach to identify these changes. The \emph{distance metric} which uses variations in the inter-agent distances, as discussed by Navarro et al.~\cite{NIM:09}. The new metric uses the resultant magnitudes of the agents' \emph{inter-agent vectors} that are defined by interactions of an agent with it's neighbours which allows a more accurate analysis of a swarm when using non-homogeneous sensor distances. The metric also identifies when a swarm is expanding or contracting. 
+\emph{Swarming} in the animal kingdom of ants, bees, fish and birds for instance has long been studied by scientists. From these studies mathematical models and algorithms have evolved. The models and algorithms have in turn captured the interest of computing scientists who are interested in applying them to large groups of autonomous mobile \emph{agents} (`robots'). The cooperative coordination of these agents can take many forms such as following a set path~\cite{HCS:09}, existing in a static space~\cite{EP:10, GP:02, GP:04} or foraging as a colony~\cite{HER:11, GK:07}. One of the attributes of swarms that has captured the interest of scientists is that the models and algorithms used to coordinate them are generally sets of simple rules. These simple rules cause the agents to appear to work cooperatively. These rules can also generate movement that does not contribute to the goal of the swarm this movement is a direct result of the agents attempting to move towards an optimum position within the structure. This internal movement can be identified by analysing the changes in the inter-agent interactions. Measuring this unnecessary movement allows the effectiveness of a swarming algorithm to be evaluated. If the internal movement can be reduced then the stability of the swarm is improved and more of the swarms energy is focused on the goal. Reducing the internal movement also provides a more stable platform for the deployment of sensor arrays. Both the metrics presented in this paper allow this evaluation to be carried out when all the sensor ranges are the same however the distance metric is not able to identify the internal movement accurately when the sensor ranges of each agent vary producing irregular inter-agent distances even though the interactions at the vector level indicate that the agents are in fact stable and optimum. This paper discusses the two metrics and how they differ in their approach to identify these changes. The \emph{distance metric} which uses variations in the inter-agent distances is used and discussed by many research teams including Navarro et al.~\cite{NIM:09}, Gazi and Passino~\cite{GP:02,GP:04}, Barnes et al.~\cite{BAF:06} and Schneider and Wildermuth~\cite{SW:03}. The new metric uses the resultant magnitudes of the agents' \emph{inter-agent vectors} that are defined by interactions of an agent with its neighbours. The metric also identifies when a swarm is expanding or contracting. 
 
-This paper presents a swarm model and then applies the two metrics to this model to present a comparison of the two metrics and uses the new metric to identify a swarm's `state'.
- 
+Many coordination algorithms exist to control the movement of agents within a swarm. The primary goal of these algorithms is to maintain a stable swarm structure. The main focus of this paper is the use any coordination algorithm that are based on \textit{field effects} to produce a metric that allows the swarm to be analysed. To allow this paper to present the findings a basic swarm model is introduced and then the two metrics are applied to this model to present a comparison. This includes the identification of a swarm's `state'.
+
+\section{Related Work}\label{Related}
+
+Many metrics exist for the analysis of swarms. However they tend to fall into two main categories based upon the area of interest when examining a swarm's characteristics. These two techniques are \textit{Centroidal} and \textit{Inter-agent distance} based. The common denominator of both these techniques is that they \textit{measure} a swarm's agent distribution and deviations from a predicted distribution. 
+
+\textit{Centroidal} analysis: The centroid of a swarm is its \textit{centre of mass} as shown in Equation~\ref{eq:Centroid1}. This is often used as a reference point to determine the path of a swarm or to measure how agents are arranged within a swarm's structure. Navarro et al. use the centroid to produce a \textit{Mean Distance from the Boundary to the Center of the Group} metric. This metric takes the distance of each agent from the centroid and calculates the mean and the deviation to produce a measure~\cite{NIM:09}. Gazi and Passino also use this technique when analysing the stability of a swarm based on agent distribution~\cite{GP:11}. Gazi and Passino also use the centroid when analysing the stability of a swarm which is designed to maintain its position by analysing the changes in the centroids position over time~\cite{GP:04}.  
+
+The centroid of the swarm is determined by taking the coordinate position of each agent and calculating the mean of the $x$ and $y$ positions as shown in Equation~\ref{eq:Centroid1}.
+
+\begin{equation}\label{eq:Centroid1}
+C_s = \frac{1}{\card{S}}\mathlarger{\sum_{b' \in S}} b'
+\end{equation}
+
+\textit{Inter-Agent Distance} analysis: A basic mechanism for analysing a swarm it to analyse the separation of all of the agents with respect to each agents visible neighbours. This technique is the most popular approach to analysing a swarms structure~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02, GP:04, GP:04a, GP:05, GP:11, MYP:09}.
+
 %% \section{Metric principles\label{section:MagnitudeDynamics}}
 %% This section discusses the theory behind swarm movement and the effects that can be measured using both the metrics described above.
 \section{Swarm modelling}\label{SwarmModelling}
