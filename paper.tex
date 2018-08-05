@@ -316,7 +316,7 @@ When the two vectors (cohesion and repulsion) have magnitudes that are equal and
 
 If we consider the equilibrium state (Fig.~\ref{methods:Stability4}) the resultant $v(b)=(0,0)$. A null vector cannot be normalised to produce a directional vector ($\hat{v} = \frac{v}{|v|}$ if $v\neq0$; $0$ if $v=0$) The effect is that the agent will remain stationary. If all agent pairs are in this condition the swarm will stop moving~(Fig.~\ref{methods:StabilityNullVector}).
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5cm]{figures/StabilityNullVector}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4cm]{figures/StabilityNullVector}
 {Equilibrium with null vectors.\label{methods:StabilityNullVector}}
 
 %% \begin{figure}[H]
@@ -334,8 +334,8 @@ If a swarm is goal-based, the addition of a \emph{directional vector} will preve
 v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
 \end{equation}
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=5.5cm]{figures/StabilityNullVector3}
-{(t).\label{concave:VoidPerimeter1}}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4cm]{figures/StabilityNullVector3}
+{Equilibrium with directional vector (t).\label{concave:VoidPerimeter1}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -345,8 +345,8 @@ v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
 %% \caption{(t)}
 %% \end{figure}
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/StabilityNullVector2}
-{(t + 1).\label{concave:VoidPerimeter2}}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4cm]{figures/StabilityNullVector2}
+{Equilibrium with directional vector (t + 1).\label{concave:VoidPerimeter2}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -371,7 +371,7 @@ Navarro and Fernando describe a \emph{mean distance error} metric that is based 
 %% The distance based internal movement is measured by identifying the mean length of the vectors between an agent and its neighbours. As with the \emph{agent resultant magnitude} a coordination algorithm produces `jitter' which is the variations from the mean. In the case of the distance based metric the jitter is identified by the changes in the distances rather than the changes in vector magnitude (\emph{agent resultant magnitude}). The distance metric is the mean and the standard deviation `jitter' of the inter-agent distances.
 
 % \section{Calculating distance internal movement}
-Equation~(\ref{eq:SwarmStabilityDistance1}) computes the mean distance of an agent to its neighbours $nbr(b)$. 
+Equation~(\ref{eq:SwarmStabilityDistance1}) calculates the mean distance of an agent to its neighbours $nbr(b)$. 
 %% The relative position vector generated for an agent $b$ to its neighbour $b'$, $bb'$, is shown in~(\ref{eq:FlyToCentre1}). The magnitude of that vector gives the distance between two agents. For an individual agent the average magnitude $\mu_d(b)$ is calculated as \ref{eq:SwarmStabilityDistance1} where $b$ is the agent and $|nbr(b)|$ is the number of neighbours.
 
 \begin{equation}
@@ -592,7 +592,7 @@ The distance-based metric measures swarm structure in terms of position of agent
 
 The \emph{cohesion/repulsion} metric provides an indication of a swarm's potential future movement. This is independent of the physical distribution of the agents within the swarm. 
 
-The two metrics together provide a deeper evaluation of a swarm's structure and `potential' than either of the metrics alone. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} falls below zero. This indicates `something' is confining the swarm's distribution as discussed in Section \ref{metric:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
+The two metrics together provide a deeper evaluation of a swarm's structure and `potential' than either of the metrics alone. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \emph{cohesion/repulsion metric} falls below zero. This indicates `something' is confining the swarm's distribution as discussed in Section \ref{Section:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -604,7 +604,7 @@ The two metrics together provide a deeper evaluation of a swarm's structure and 
 \section{Future work}\label{Section:FutureWork}
 The new metric can be applied to the analysis of the effects of coordination
 algorithms upon a swarm's structure. An application to flood filling has
-been discussed~(Section~\ref{metric:ApplicationFloodFilling}). The metric can also be applied to identifying the effects of 
+been discussed~(Section~\ref{Section:ApplicationFloodFilling}). The metric can also be applied to identifying the effects of 
 `healing' algorithms, e.g. to remove `voids' from a swarm. We plan
 to investigate this, and other, practical applications of the metric.
 
