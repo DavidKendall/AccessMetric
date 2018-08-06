@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex paper"] 1533499222 "paper.aux" "paper.bbl" "paper" 1533499578
+["bibtex paper"] 1533577375 "paper.aux" "paper.bbl" "paper" 1533577376
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "paper.aux" 1533499578 7508 6ad19c7f6e57f0b789f852dee36ad94b ""
+  "paper.aux" 1533577376 7497 907a73319e3f3596d1c28f222c4e515e ""
   "paper.bcf" 0 -1 0 ""
   "thesis.bib" 1533484156 177140 a32f6962480134c05c74282ba213bb13 ""
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1533499578 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1533499578
+["pdflatex"] 1533577375 "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" "paper.pdf" "paper" 1533577376
   "/etc/texmf/web2c/texmf.cnf" 1521388104 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1533499578 53034 32153b5e86cf81eb6cff8a8ae8fe6390 ""
+  "/home/neil/neil@eliot.org.uk/NE-PhD/Writeup/Journal/IEEE/MagnitudeMetric/paper.tex" 1533577375 53954 2992d0854a049406fc262356211907c9 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -156,10 +156,10 @@
   "figures/com.eps" 1533065735 24278 f9a75a5ea84a37e96c43363ec640b613 ""
   "ieeeaccess.cls" 1508979826 43839 3abf959902254cbaf82e6ce14f087bf5 ""
   "notaglineLogo.png" 1519301226 3150 e273b7aed356b5f76c6d0b072166d68c ""
-  "paper.aux" 1533499578 7508 6ad19c7f6e57f0b789f852dee36ad94b ""
-  "paper.bbl" 1533499222 7540 2d1a1bfa2ea4e3d8305e6304eec0a7ca "bibtex paper"
-  "paper.tex" 1533499578 53034 32153b5e86cf81eb6cff8a8ae8fe6390 ""
+  "paper.aux" 1533577376 7497 907a73319e3f3596d1c28f222c4e515e ""
+  "paper.bbl" 1533577375 7540 2d1a1bfa2ea4e3d8305e6304eec0a7ca "bibtex paper"
+  "paper.tex" 1533577375 53954 2992d0854a049406fc262356211907c9 ""
   (generated)
+  "paper.aux"
   "paper.pdf"
   "paper.log"
-  "paper.aux"
