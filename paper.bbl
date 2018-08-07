@@ -149,6 +149,12 @@ R.~Ramaithitima, M.~Whitzer, S.~Bhattacharya, and V.~Kumar.
 \newblock In {\em 2015 IEEE International Conference on Robotics and Automation
   (ICRA)}, pages 3408--3415, May 2015.
 
+\bibitem{REY:87}
+Craig~W Reynolds.
+\newblock Flocks, herds and schools: A distributed behavioral model.
+\newblock In {\em ACM SIGGRAPH computer graphics}, volume~21, pages 25--34.
+  ACM, 1987.
+
 \bibitem{SB:06}
 M.~Scheutz and P.~Bauer.
 \newblock A scalable, robust, ultra-low complexity agent swarm for area
