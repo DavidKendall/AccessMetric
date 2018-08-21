@@ -87,7 +87,7 @@ Section~\ref{Section:DistanceDynamics} discusses a distance-based metric approac
 
 \section{Related Work}\label{Section:Related}
 
-Many metrics exist for the analysis of swarms. These metrics can be categorised as \textit{Centroidal-based}, \textit{Agent/Inter-agent distance-based} and \textit{vector-based}. The common denominator of \textit{centroidal} and \textit{Agent/inter-agent distance} metrics are that they \textit{measure} the agent distribution within a swarm based upon distances. \textit{Vector-based} metrics analysis a swarm based upon inter-agent interaction. 
+Many metrics exist for the analysis of swarms. These metrics can be categorised as \textit{Centroidal-based}, \textit{Agent/Inter-agent distance-based} and \textit{Magnitude-based}. The common denominator of \textit{centroidal} and \textit{Agent/inter-agent distance} metrics are that they \textit{measure} the agent distribution within a swarm based upon distances. \textit{Magnitude-based} metrics analysis a swarm based upon inter-agent interaction. 
 
 \textit{Centroidal} analysis involves identifying the centroid of a swarm, also referred to as the \textit{centre of mass}, as shown in Figure~\ref{com} as a red cross and defined in Equation~\ref{eq:Centroid1}. 
 
@@ -594,12 +594,12 @@ Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simula
 %% The two metrics (distance and \textit{cohesion/repulsion}) both measure the structure of a swarm in terms of the distribution of the agents and deviations from a mean. The \textit{cohesion/repulsion} metric also allows the state of the swarm to be identified.
 %% 
 %% The distance metric is based upon the physical \textit{distribution} of the agents and the cohesion/repulsion metric is based upon the logical \textit{interaction} of the agents.
-The distance-based metric measures swarm structure in terms of position of agents. It provides an analysis at a point in time but does not allow the identification of the future behaviour of a swarm as `expanding', `stable' or `contracting'. 
+Distance-based metrics measure a swarm's structure in terms of the position of agents. This is independent of the algorithm that produces the swarm's structure. It provides an analysis at a point in time but does not allow the identification of the future behaviour of a swarm as `expanding', `stable' or `contracting'. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects2}
 {Heterogeneous field effects.\label{additional:fieldsWork}}
 
-The \textit{cohesion/repulsion} metric provides an indication of a swarm's potential future movement. This is independent of the physical distribution of the agents within the swarm. 
+The \textit{cohesion/repulsion} metric is based upon the algorithms that have produced the structure and is therefore an analysis of how the algorithms are performing rather than the structure presented. The new metric also provides an indication of a swarm's potential future movement. This is independent of the physical distribution of the agents within the swarm. The metric also provides the same information as the distance metric in terms of agent distribution when the field effects are consistent across all agents i.e. monolithic field effects. This is shown in Fig. \ref{emerge:FIELDFILL-MAG} and \ref{emerge:FIELDFILL-DIST} by the profiles of the two graphs being the same.
 
 The two metrics together provide a deeper evaluation of a swarm's structure and `potential' than either of the metrics alone. Consider the following: the repulsion field is increased but the internal distances do not change; as a result the \textit{cohesion/repulsion metric} falls below zero. This indicates `something' is confining the swarm's distribution as discussed in Section \ref{Section:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
 
