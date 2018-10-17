@@ -58,7 +58,23 @@ Newcastle upon Tyne, NE1 8ST}
   % the extent to which they cause unnecessary movement, i.e. movement which
   % occurs as a side effect of the algorithm rather than from the fulfilment of
   % the intended function of the swarm. 
-  There are many metrics defined for the analysis of swarm coordination algorithms. These metrics are usually based upon the distances between agents, the distance between agents and a fixed point or the resultant vector that \textit{potential field} effects produce. This paper examines a distance-based metric that measures a swarm's overall structure using inter-agent distances and introduces a new metric that identifies a swarm's state based upon the resultant magnitude of the vectors produced by the inter-agent interactions that create the agent distribution within a swarm's structure. The algorithms used to implement the swarming feature are based upon cohesion and repulsion vectors between an agent and its neighbours. In comparing and contrasting the two metrics, we find that the \textit{cohesion/repulsion} metric offers a number of advantages over the distance metric. In particular, the \textit{cohesion/repulsion} metric allows the identification of the essential characteristic of a swarm as `expanding', `stable', or `contracting'. These state cannot be identified using a distance-based metric. Practical swarming applications where the new metric can be applied advantageously include area filling and reconnaissance.
+  There are many metrics defined for the analysis of swarm coordination
+  algorithms. These metrics are usually based upon the distances between
+  agents, the distance between agents and a fixed point, or the resultant vectors
+  that \textit{potential field} effects produce. This paper examines a
+  distance-based metric that measures a swarm's overall structure using
+  inter-agent distances. It introduces a new metric that identifies a swarm's
+  state based upon the resultant magnitude of the vectors produced by the
+  agent interactions that create the agent distribution within the swarm's
+  structure. The algorithms used to implement the swarming feature are based
+  upon cohesion and repulsion vectors between an agent and its neighbours. In
+  comparing and contrasting the two metrics, we find that the
+  \textit{cohesion/repulsion} metric offers a number of advantages over the
+  distance metric. In particular, the \textit{cohesion/repulsion} metric allows
+  the identification of the essential characteristic of a swarm as `expanding',
+  `stable', or `contracting'. These states cannot be identified using a
+  distance-based metric. Practical swarming applications where the new metric
+  can be applied advantageously include area-filling and reconnaissance.
 \end{abstract}
 
 \begin{keywords}
@@ -73,45 +89,171 @@ Swarming, Swarm Dynamics, Swarm Metric.
 \section{Introduction\label{sec:intro}}
 
 %\section{Introduction\label{methods:SwarmStability}}
-\textit{Swarming} in the animal kingdom of ants, bees, fish and birds for instance has long been studied by scientists. From these studies mathematical models and algorithms have evolved such as those produced by Reynolds~\cite{REY:87}. The models and algorithms have in turn captured the interest of computing scientists who are interested in applying them to large groups of autonomous mobile \textit{agents} (`robots'). The cooperative coordination of these agents can take many forms such as following a set path~\cite{HCS:09}, existing in a static space~\cite{EP:10, GP:02, GP:04} or foraging as a colony~\cite{HER:11, GK:07}. One of the attributes of swarms that has captured the interest of scientists is that the models and algorithms used to coordinate them are generally sets of simple rules. These simple rules cause the agents to appear to work cooperatively. These rules can also generate movement that does not contribute to the goal of the swarm, this movement is a direct result of the agents attempting to move towards an optimum position within the structure. This internal movement can be identified by analysing the changes in the inter-agent interactions. Measuring this unnecessary movement allows the effectiveness of a swarming algorithm to be evaluated. If the internal movement can be reduced then the stability of the swarm is improved and more of the swarms energy is focused on the goal. Reducing the internal movement also provides a more stable platform for the deployment of sensor arrays. Both the metrics presented in this paper allow this evaluation to be carried out when all the sensor ranges are the same however the distance metric is not able to identify the internal movement accurately when the sensor ranges of each agent vary producing irregular inter-agent distances even though the interactions at the vector level indicate that the agents are in fact stable and optimum. This paper discusses the two metrics and how they differ in their approach to identify these changes. \textit{Distance-based} metrics uses variations in the inter-agent spaces as discussed by many research teams including Navarro et al.~\cite{NIM:09}, Gazi and Passino~\cite{GP:02,GP:04}, Barnes et al.~\cite{BAF:06} and Schneider and Wildermuth~\cite{SW:03}. The new metric uses the resultant magnitudes of the agents' \textit{inter-agent vectors} that are defined by interactions of an agent with its neighbours this allows the ``degree'' of a relationship to be evaluated globally and therefore allows a swarm to be identified as ``expanding'', ``stable'' or ``contracting''. 
 
-Many coordination algorithms exist to control the movement of agents within a swarm. The primary goal of these algorithms are to maintain a stable swarm structure. A stable structure is one where the agents in the swarm ``act'' as a single entity. The main focus of this paper is the use of a metric that can be applied to any coordination algorithms that use \textit{potential fields} to produce a swarming effect. Most swarming algorithms define a set of equations that calculate the repulsion and cohesion effects. These two equations are the basis of the new metric. 
+\textit{Swarming} in the animal kingdom of ants, bees, fish and birds, for
+instance, has long been studied by scientists. From these studies, mathematical
+models and algorithms have evolved, such as those produced by
+Reynolds~\cite{REY:87}. The models and algorithms have in turn captured the
+interest of computing scientists, who are interested in applying them to large
+groups of autonomous mobile \textit{agents} (`robots'). The cooperative
+coordination of these agents can take many forms, such as following a set
+path~\cite{HCS:09}, existing in a static space~\cite{EP:10, GP:02, GP:04} or
+foraging as a colony~\cite{HER:11, GK:07}. One of the attributes of swarms that
+has captured the interest of scientists is that the models and algorithms used
+to coordinate them are generally sets of simple rules. These simple rules cause
+the agents to appear to work cooperatively. Often, the rules can also generate
+movement that does not contribute to the goal of the swarm. This movement is a
+direct result of the agents attempting to move towards an optimum position
+within the structure. This internal movement can be identified by analysing the
+changes in the inter-agent interactions. Measuring this unnecessary movement
+allows the effectiveness of a swarming algorithm to be evaluated. If the
+internal movement can be reduced, then the stability of the swarm is improved
+and more of the swarm's energy is focused on the goal. Reducing the internal
+movement also provides a more stable platform for the deployment of sensor
+arrays. Both metrics, presented in this paper, allow this evaluation to be
+carried out when all the sensor ranges are the same. However, the distance metric
+is not able to identify the internal movement accurately when the sensor ranges
+of each agent vary, producing irregular inter-agent distances, even though the
+interactions at the vector level indicate that the agents are in fact stable
+and optimum. This paper discusses the two metrics and how they differ in their
+approach to identifying these changes. \textit{Distance-based} metrics use
+variations in the inter-agent spaces, as discussed by many research teams
+including Navarro et al.~\cite{NIM:09}, Gazi and Passino~\cite{GP:02,GP:04},
+Barnes et al.~\cite{BAF:06} and Schneider and Wildermuth~\cite{SW:03}. The new
+metric uses the resultant magnitudes of the agents' \textit{inter-agent
+vectors} that are defined by interactions of an agent with its neighbours. This
+allows the ``degree'' of a relationship to be evaluated globally and therefore
+allows a swarm to be identified as ``expanding'', ``stable'' or
+``contracting''. 
 
-To facilitate the analysis of the new metric a basic swarm model is introduced and then two metrics are applied to this model to present a comparison of the information provided by a \textit{distance-based} and the new \textit{cohesion/repulsion-based} metric. The analysis includes the identification of a swarm's ``state''. The metric is then applied to a flood filling scenario to highlight a possible use of the new metric. 
+Many coordination algorithms exist to control the movement of agents within a
+swarm. The primary goal of these algorithms is to maintain a stable swarm
+structure. A stable structure is one where the agents in the swarm ``act'' as a
+single entity. The main focus of this paper is on metrics that can be
+applied to any coordination algorithms that use \textit{potential fields} to
+produce a swarming effect. Most swarming algorithms define a set of equations
+that calculate the repulsion and cohesion effects. These equations are the
+basis of the new metric. 
 
-The remainder of this paper is structured as follows Section~\ref{Section:Related} discusses different metrics that are currently used to analyse swarms, Section~\ref{Section:SwarmModelling} introduces a basic swarm model to produce an environment that can be analysed and evaluated using the two metrics. 
-Section~\ref{Section:StabilityMagnitude} discusses the mathematical model that produces the swarming effect and how the potential fields are applied. 
-Section~\ref{Section::Movement1} discusses how the model is implemented over time to produce movement. Section~\ref{Section:StabilityNullVector} discusses the effect of the model on swarm stability and the effects models have on swarm movements. 
-% Section~\ref{Section:Jitter} discusses the effect the mathematical model can have upon the structure of a swarm in terms of potentially wasted energy. 
-Section~\ref{Section:DistanceDynamics} discusses a distance-based metric approach to swarm analysis. Section~\ref{Section:MagnitudeDynamics} introduces the new \textit{cohesion/repulsion-based} metric and how it is calculated and applied. Section~\ref{Section:ApplicationFloodFilling} compares the two metrics using a scenario of a swarm being used to fill an area. Section~\ref{Section:MagnitudeDistanceComparison} discusses the results of the experiments and Section~\ref{Section:FutureWork} discusses additional work that needs to be carried out to exploit the additional information that the new metric provides.
+To facilitate the analysis of the new metric, a basic swarm model is introduced
+and then two metrics are applied to this model to present a comparison of the
+information provided by a \textit{distance-based} and the new
+\textit{cohesion/repulsion-based} metric. The analysis includes the
+identification of a swarm's ``state''. The metric is then applied to an 
+area-filling scenario to highlight a possible use of the new metric. 
+
+The remainder of this paper is structured as follows:
+Section~\ref{Section:Related} discusses different metrics that are currently
+used to analyse swarms; Section~\ref{Section:SwarmModelling} introduces a basic
+swarm model to produce an environment that can be analysed and evaluated using
+the two metrics; Section~\ref{Section:StabilityMagnitude} discusses the
+mathematical model that produces the swarming effect and how the potential
+fields are applied; Section~\ref{Section::Movement1} discusses how the model is
+implemented over time to produce movement;
+Section~\ref{Section:StabilityNullVector} discusses the effect of the model on
+swarm stability and the effects models have on swarm movements; 
+% Section~\ref{Section:Jitter} discusses the effect the mathematical model can
+% have upon the structure of a swarm in terms of potentially wasted energy. 
+Section~\ref{Section:DistanceDynamics} discusses a distance-based metric for
+swarm analysis; Section~\ref{Section:MagnitudeDynamics} introduces the new
+\textit{cohesion/repulsion-based} metric, showing how it is calculated and
+applied; Section~\ref{Section:ApplicationFloodFilling} compares the two metrics
+using an area-filling scenario;
+Section~\ref{Section:MagnitudeDistanceComparison} discusses the results of
+experiments, and, finally, Section~\ref{Section:FutureWork} discusses
+additional work that needs to be carried out to exploit the additional
+information that the new metric provides.
 
 \section{Related Work}\label{Section:Related}
 
-Many metrics exist for the analysis of swarms. These metrics can be categorised as \textit{Centroidal-based}, \textit{Agent/Inter-agent distance-based} and \textit{Magnitude-based}. The common denominator of \textit{centroidal} and \textit{Agent/inter-agent distance} metrics are that they \textit{measure} the agent distribution within a swarm based upon distances. \textit{Magnitude-based} metrics analysis a swarm based upon inter-agent interaction. 
+Many metrics exist for the analysis of swarms. These metrics can be categorised
+as \textit{centroidal-based}, \textit{agent/inter-agent distance-based} and
+\textit{magnitude-based}. The common denominator of \textit{centroidal} and
+\textit{agent/inter-agent distance} metrics is that they \textit{measure} the
+agent distribution within a swarm based upon distances.
+\textit{Magnitude-based} metrics analyse a swarm based upon inter-agent
+interaction. 
 
-\textit{Centroidal} analysis involves identifying the centroid of a swarm, also referred to as the \textit{centre of mass}, as shown in Figure~\ref{com} as a red cross and defined in Equation~\ref{eq:Centroid1}. 
+\textit{Centroidal} analysis involves identifying the centroid of a swarm, also
+referred to as the \textit{centre of mass}, as shown in Figure~\ref{com} as a
+red cross and defined in Equation~\ref{eq:Centroid1}. 
 
 \begin{equation}\label{eq:Centroid1}
   \bar{r} = \frac{1}{\card{S}}\mathlarger{\sum_{b \in S}} r_b
 \end{equation}
 
-Here, ($\bar{r}$) denotes the position vector of the swarm's \textit{centroid}; $r_b$ is the position of each agent($b$) and $S$ is the set of agents that make up the swarm.
+Here, $\bar{r}$ denotes the position vector of the swarm's \textit{centroid};
+$r_b$ is the position of each agent, $b$, and $S$ is the set of agents that make
+up the swarm.
 
-Navarro et al. use the centroid to produce a "Mean Distance from the Boundary to the Center of the Group" metric~\cite{NIM:09}. This metric takes the distance of each agent from the centroid and calculates the mean and deviation to produce their measure. Gazi and Passino use this technique when analysing the stability of a swarm based on agent distribution~\cite{GP:11}. The \textit{centroid} is also used as a reference point to determine the path of a swarm. Gazi and Passino use the centroid when analysing the stability of a swarm which is designed to maintain its position by analysing the changes in the centroid's position over time~\cite{GP:04}. Gazi and Passino also use a centroid-based analysis in~\cite{GP:02}~to identify directional changes in agent movement by creating a ``map'' of the potential fields of a swarm in its entirety and overlaying that to the ``centre'' of the swarm.  Barnes et. al. use the centroid to analyse the effects of using bivariate normal functions in their work on using potential fields~\cite{BAF:06, BAFVM:06}. 
+Navarro et al. use the centroid to produce a "Mean Distance from the Boundary
+to the Center of the Group" metric~\cite{NIM:09}. This metric takes the
+distance of each agent from the centroid and calculates the mean and deviation
+to produce their measure. Gazi and Passino use this technique when analysing
+the stability of a swarm based on agent distribution~\cite{GP:11}. The
+\textit{centroid} is also used as a reference point to determine the path of a
+swarm. Gazi and Passino use the centroid when analysing the stability of a
+swarm which is designed to maintain its position, by analysing the changes in
+the centroid's position over time~\cite{GP:04}. Gazi and Passino also use a
+centroid-based analysis in~\cite{GP:02}~to identify directional changes in
+agent movement by creating a ``map'' of the potential fields of a swarm in its
+entirety and overlaying that to the ``centre'' of the swarm.  Barnes et. al.
+use the centroid to analyse the effects of using bivariate normal functions in
+their work on using potential fields~\cite{BAF:06, BAFVM:06}. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4.5cm]{figures/com}
 {Swarm Centre of Mass.\label{com}}
 
-\textit{Inter-Agent Distance} analysis is a basic mechanism for analysing a swarm in terms of separation of all of the agents with respect to each agent's visible neighbours. This is different to using the \textit{centroidal} approach as the measure is based on agent interactions rather than a resultant structure which effects the centroid. This technique is the most popular approach to analysing a swarms structure. Gazi and Passino use a distance-based analysis in~\cite{GP:04, GP:11} to identify optimum distribution of agents based upon different cohesion and repulsion applications. Wu et. al. discuss using distance-based metrics to evaluate emergent behaviours in swarm based on a Viscsek model~\cite{WCW:11}. These include calculating the average number of neighbours for each agent, grouping agents based on numbers of neighbours (to identify clusters) and the average distance between agents~\cite{WCW:11}. Schneider and Wildermuth~\cite{SW:03} use a slightly different approach to measuring performance. They identify the difference in the paths of robots in a simulated versus a physical implementation and calculate a distance variance between them.
+\textit{Inter-agent distance} analysis is a basic mechanism for analysing a
+swarm in terms of separation of all of the agents with respect to each agent's
+visible neighbours. This is different to using the \textit{centroidal} approach,
+as the measure is based on agent interactions rather than a resultant structure
+which affects the centroid. This technique is the most popular approach to
+analysing a swarm's structure. Gazi and Passino use a distance-based analysis
+in~\cite{GP:04, GP:11} to identify optimum distribution of agents based upon
+different cohesion and repulsion applications. Wu et. al. discuss using
+distance-based metrics to evaluate emergent behaviours in swarms based on a
+Viscsek model~\cite{WCW:11}. These include calculating the average number of
+neighbours for each agent, grouping agents based on numbers of neighbours (to
+identify clusters), and calculating the average distance between agents~\cite{WCW:11}.
+Schneider and Wildermuth~\cite{SW:03} use a slightly different approach to
+measuring performance. They identify the difference in the paths of robots in a
+simulated versus a physical implementation and calculate a distance variance
+between them.
 
-\textit{Magnitude-based} analysis uses the \textit{potential fields} to calculate the ``degree'' of interaction between agents. Bennet and McInnes use the resultant relationship between agents to identify equilibrium states when creating structures such as rings and controlling the direction of agents to created specific transformations~\cite{BM:09}. Wu et al. introduce the concept of a \textit{rejection potential} in an attempt to generate a "kinetic energy" score for a swarm~\cite{WCW:11}.
+\textit{Magnitude-based} analysis uses the \textit{potential fields} to
+calculate the ``degree'' of interaction between agents. Bennet and McInnes use
+the resultant relationship between agents to identify equilibrium states when
+creating structures such as rings and controlling the direction of agents to
+create specific transformations~\cite{BM:09}. Wu et al. introduce the concept
+of a \textit{rejection potential} in an attempt to generate a "kinetic energy"
+score for a swarm~\cite{WCW:11}.
 
-This paper builds upon the work relating to the \textit{Magnitude-based} metric analysis as discussed by Bennet and McInnes and Wu et al. by expanding the analysis to the entire swarm, deriving a scalar value can be used in the analysis of swarm behaviour.
+This paper builds upon the work relating to the \textit{magnitude-based} metric
+analysis, as discussed by Bennet and McInnes, and Wu et al., by expanding the
+analysis to the entire swarm and deriving a scalar value that can be used in the
+analysis of swarm behaviour.
 
 %% \section{Metric principles\label{section:MagnitudeDynamics}}
 %% This section discusses the theory behind swarm movement and the effects that can be measured using both the metrics described above.
 \section{Swarm modelling}\label{Section:SwarmModelling}
-Currently, much swarm research uses field effects as the method of modelling inter-agent interactions~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02, GP:04, GP:04a, GP:05, GP:11, MYP:09}. The models usually use two field effects to implement the swarming characteristic. These effects are \textit{cohesion}, to draw agents closer, and \textit{repulsion} to prevent agents colliding. \textit{Potential fields} are ranges around an agent that determine the effect other agents have upon its movement~(Fig.~\ref{methods:FieldEffects}). It is usual for the cohesion field to have a radius $C_b$ which is larger than the repulsion radius $R_b$. When an agent ($b'$) moves into the \textit{cohesion field} of an agent ($b$) then $b'$ is said to be a neighbour of $b$ and is subject to cohesion. When an agent $b'$ moves into the \textit{repulsion field} of $b$ then $b$ is subjected to repulsion. When the repulsion magnitude exceeds the cohesion magnitude the agent will have a tendency to move away from $b'$, i.e. repelled. Obstacles can be introduced to the model, when an agent $b$ moves too close to an obstacle, i.e. within the obstacle repulsion range $O_b$, it has a \textit{repulsion vector} applied to move the agent away from the obstacle.
+Currently, much swarm research uses field effects as the method of modelling
+inter-agent interactions~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02,
+GP:04, GP:04a, GP:05, GP:11, MYP:09}. The models usually use two field effects
+to implement the swarming characteristic. These effects are \textit{cohesion},
+to draw agents closer, and \textit{repulsion} to prevent agents colliding.
+\textit{Potential fields} are ranges around an agent that determine the effect
+other agents have upon its movement~(Fig.~\ref{methods:FieldEffects}). It is
+usual for the cohesion field to have a radius $C_b$ which is larger than the
+repulsion radius $R_b$. When an agent $b'$ moves into the \textit{cohesion
+field} of an agent $b$, then $b'$ is said to be a neighbour of $b$, and $b$ is
+subject to cohesion. When an agent $b'$ moves into the \textit{repulsion field}
+of $b$, then $b$ is subject to repulsion. When the repulsion magnitude exceeds
+the cohesion magnitude, the agent $b$ will have a tendency to move away from
+$b'$, i.e. to be repelled. Obstacles can be introduced into the model. When an
+agent $b$ moves too close to an obstacle, i.e. within the obstacle repulsion
+range $O_b$, it has a \textit{repulsion vector} applied, giving it a tendency
+to move away from the obstacle.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{figures/FieldEffects}
 {Agent field effects.\label{methods:FieldEffects}}
@@ -124,7 +266,10 @@ Currently, much swarm research uses field effects as the method of modelling int
 %% \end{figure}
 
 \section{Inter-agent vector magnitude effect on internal movement}\label{Section:StabilityMagnitude}
-Figure~\ref{methods:Stability5} shows the cohesion and repulsion vector contributions to $v_c(b)$ and $v_r(b)$ due to neighbour $b'$, as given in Equation~\ref{eq:FlyToCentre1} and \ref{eq:Repulsion1}. Notice that the vectors are along the line of separation $bb'$. \\
+Figure~\ref{methods:Stability5} shows the cohesion and repulsion vector
+contributions of neighbour $b'$ to $v_c(b)$ and $v_r(b)$, as given in
+Equations~\ref{eq:FlyToCentre1} and \ref{eq:Repulsion1}. Notice that the vectors
+are along the line of separation $bb'$. \\
 
 %% Equation (\ref{eq:Neighbours1}) identifies the set of agents that are neighbours of $b$.
 %% 
@@ -132,13 +277,18 @@ Figure~\ref{methods:Stability5} shows the cohesion and repulsion vector contribu
 %% nbr(b) \buildrel \Delta \over = \{b' \in S | |bb'| <= C_b\}
 %% \end{equation}‎
 
-Equation~\ref{eq:FlyToCentre1} identifies the resultant cohesion effect of all the neighbours of $b$. Here, $nbr(b)$ defines the set of all the agents in the swarm that are a neighbour of $b$; a neighbour is any agent that fails within the cohesion field.
+Equation~\ref{eq:FlyToCentre1} identifies the resultant cohesion effect of all
+the neighbours of $b$. Here, $nbr(b)$ defines the set of all the agents in the
+swarm that are a neighbour of $b$; a neighbour is any agent that falls within
+the cohesion field.
 
 \begin{equation}\label{eq:FlyToCentre1}
 v_{c}(b) = \frac{1}{|nbr(b)|}\left({\mathlarger{\sum_{b' \in nbr(b)}}{bb'}}\right)
 \end{equation}
 
-Equation~\ref{eq:Repulsion1} identifies the resultant repulsion effect of all the neighbours of $b$ where $rep(.)$ returns a set of all agents that are within the repulsion field.
+Equation~\ref{eq:Repulsion1} identifies the resultant repulsion effect of all
+the neighbours of $b$, where $rep(b)$ returns the set of all agents that are
+within the repulsion field of $b$.
 
 \begin{equation}
 \label{eq:Repulsion1}
@@ -151,15 +301,21 @@ v_{r}(b) =
 \right)
 \end{equation}
 
-Using the cohesion and repulsion vectors generated by the relationship of $b$ to its neighbour $b'$ a resultant vector can be calculated. Summing the vectors creates a resultant vector that is the overall affects the agent is being subjected to and provides the direction an agent will move based on the relationship. This is the \textit{inter-agent vector}.
-
-Equation~\ref{eq:InterAgentMovement1} identifies the \textit{inter-agent vector} for agent $b$ with respect to its neighbours.
+Using the cohesion and repulsion vectors generated by the relationship of $b$
+to its neighbours, a resultant vector can be calculated that summarises the
+effects to which the agent is being subjected, and provides the direction in
+which the agent will move, based on this relationship. This is the
+\textit{inter-agent vector}.  Equation~\ref{eq:InterAgentMovement1} identifies
+the \textit{inter-agent vector} for agent $b$ with respect to its neighbours.
 
 \begin{equation}\label{eq:InterAgentMovement1}
 v(b) = v_{c}(b) + v_{r}(b)
 \end{equation}
 
-If a \textit{weighted} model is used then~Equation~\ref{eq:InterAgentMovement1}) becomes~\ref{eq:InterAgentMovement2} where $k_c$ and $k_r$ are weightings to change the effect of each vector as shown in Table~\ref{tab:MetricPhysics1}.
+If a \textit{weighted} model is used then~Equation~\ref{eq:InterAgentMovement1}
+is replaced by~Equation~\ref{eq:InterAgentMovement2}, where $k_c$ and $k_r$ are
+weightings to change the effect of each vector, as exemplified in
+Table~\ref{tab:MetricPhysics1}.
 
 \begin{equation}\label{eq:InterAgentMovement2}
 v(b) = k_cv_{c}(b) + k_rv_{r}(b)
@@ -180,9 +336,21 @@ v(b) = k_cv_{c}(b) + k_rv_{r}(b)
 %% \end{figure}
 
 \section{Internal movement and the null vector}\label{Section:StabilityNullVector}
-When the two vectors (cohesion and repulsion) have magnitudes that are equal and opposite they produce a null vector, indicating that two agents are optimally spaced for a given set of conditions. Although the agents are at an optimum position when resultants are zero it does not mean the swarm is optimally distributed. If a swarm is in a confined space it is possible for an optimum position to be created where the vector magnitude is affected by a compression effect. This phenomenon is used in the identification of the emergent behaviour of \textit{area flooding}.  
 
-If we consider the equilibrium state (Fig.~\ref{methods:Stability4}) the resultant $v(b)=(0,0)$. A null vector cannot be normalised to produce a directional vector ($\hat{v} = \frac{v}{|v|}$ if $v\neq0$; $0$ if $v=0$) The effect is that the agent will remain stationary. If all agent pairs are in this condition the swarm will stop moving~(Fig.~\ref{methods:StabilityNullVector}).
+When the two vectors (cohesion and repulsion) have magnitudes that are equal
+and opposite they produce a null vector, indicating that two agents are
+optimally spaced for a given set of conditions. Although the agents are at an
+optimum position when resultants are zero it does not mean the swarm is
+optimally distributed. If a swarm is in a confined space it is possible for an
+optimum position to be created where the vector magnitude is affected by a
+compression effect. This phenomenon is used in the identification of the
+emergent behaviour of \textit{area filling}.  
+
+If we consider the equilibrium state (Fig.~\ref{methods:Stability4}) the
+resultant $v(b)=(0,0)$. A null vector cannot be normalised to produce a
+directional vector ($\hat{v} = \frac{v}{|v|}$ if $v\neq0$; $0$ if $v=0$) The
+effect is that the agent will remain stationary. If all agent pairs are in this
+condition the swarm will stop moving~(Fig.~\ref{methods:StabilityNullVector}).
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4cm]{figures/StabilityNullVector}
 {Equilibrium with null vectors.\label{methods:StabilityNullVector}}
@@ -194,9 +362,15 @@ If we consider the equilibrium state (Fig.~\ref{methods:Stability4}) the resulta
 %% \caption{Equilibrium with null vectors} \label{methods:StabilityNullVector}
 %% \end{figure}
 
-Due to the movement of agents being based only on neighbour interactions this situation is very rare. The residual motion that persists in a swarm is the background `noise' or `jitter' that an algorithm creates.
+Due to the movement of agents being based only on neighbour interactions this
+situation is very rare. The residual motion that persists in a swarm is the
+background `noise' or `jitter' that an algorithm creates.
 
-If a swarm is goal-based, the addition of a \textit{directional vector} will prevent all agents simultaneously producing null vectors as shown in~Fig.~\ref{concave:VoidPerimeter2} and Equation~\ref{eq:InterAgentMovementDirectional1}. Here, $k_dv_{d}(b)$ is the calculated directional vector to be applied to an agent.
+If a swarm is goal-based, the addition of a \textit{directional vector} will
+prevent all agents simultaneously producing null vectors as shown
+in~Fig.~\ref{concave:VoidPerimeter2} and
+Equation~\ref{eq:InterAgentMovementDirectional1}. Here, $k_dv_{d}(b)$ is the
+calculated directional vector to be applied to an agent.
 
 \begin{equation}\label{eq:InterAgentMovementDirectional1}
 v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
@@ -228,9 +402,15 @@ v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
 % Due to the dynamic nature of a swarm, maintaining optimum internal movement as in~Figure \ref{methods:StabilityNullVector} is highly unlikely. The agent pairs may fluctuate between the 4 states~(Fig.~\ref{methods:Stability1}, \ref{methods:Stability2}, \ref{methods:Stability3} and \ref{methods:Stability4}); These transitions are \textit{jitter}. The degree to which this variation occurs can be measured using either the change in distance between the agents, or the change in the magnitude $P(b)$~(Equation~\ref{eq:CohesionRepulsion}) between the agents. Jitter arises as motion to maintain the structure of a swarm. A swarm coordination algorithm that reduces jitter is generally desirable.
 
 \section{Modelling movement}\label{Section::Movement1}
-Each agent within a swarm calculates its \textit{movement-direction vector} based on its \textit{interaction} and \textit{destination} vectors. The \textit{movement vector}~($b_{pos}$) is calculated using the unit \textit{movement-direction vector} (Equation~\ref{eq:InterAgentMovementDirectional1}) multiplied by the time elapsed~($t$) in the system and the speed characteristic of the agent~($s_b$).
+Each agent within a swarm calculates its \textit{movement-direction vector}
+based on its \textit{interaction} and \textit{destination} vectors. The
+\textit{movement vector}~($b_{pos}$) is calculated using the unit
+\textit{movement-direction vector}
+(Equation~\ref{eq:InterAgentMovementDirectional1}) multiplied by the time
+elapsed~($t$) in the system and the speed characteristic of the agent~($s_b$).
 
-This process is carried out for every agent in the swarm to generate the swarm's next position.
+This process is carried out for every agent in the swarm to generate the
+swarm's next position.
 
 \begin{center}
 \begin{equation}
@@ -239,12 +419,28 @@ b_{pos}=s_{b}t\big(v(b)\big)\string^
 \end{equation}
 \end{center}
 
-The increment in the location of agent $b$ over time interval $t$ is shown in Equation~\ref{eq:AgentMovement} where $s_b$ is the speed of agent~$b$. Note that \string^ is the equivalent of $\hat{v} = \frac{v}{|v|}$ the normalised vector.
+The increment in the location of agent $b$ over time interval $t$ is shown in
+Equation~\ref{eq:AgentMovement} where $s_b$ is the speed of agent~$b$. Note
+that \string^ is the equivalent of $\hat{v} = \frac{v}{|v|}$ the normalised
+vector.
 
 \section{Swarm movement analysis\label{metric:MagnitudeDynamics2}}
-The repulsion and cohesion vectors are generated for an agent through the interaction of their field effects~(Fig.~\ref{methods:FieldEffects}). There are a limited number of interactions that can occur; These are illustrated in Fig.~\ref{methods:Stability1}, \ref{methods:Stability2}, \ref{methods:Stability3} and \ref{methods:Stability4}.
+The repulsion and cohesion vectors are generated for an agent through the
+interaction of their field effects~(Fig.~\ref{methods:FieldEffects}). There are
+a limited number of interactions that can occur; These are illustrated in
+Fig.~\ref{methods:Stability1}, \ref{methods:Stability2},
+\ref{methods:Stability3} and \ref{methods:Stability4}.
 
-Following repeated experiments in the initial deployment of a swarm it was found that using the same parameters for a swarm's environmental parameters and the cohesion and repulsion ranges that the results where always very similar. The results shown in this paper are therefore an example set typical of the results obtained. The data extracts shown in Tables \ref{tab:SampleReplusion0}, \ref{tab:SampleReplusionPositive}, \ref{tab:SampleCohesionPositive} and  \ref{tab:SampleEquilibrium} are the simulation results that are produced by the parameters listed in Table~\ref{tab:MetricPhysics1}. The simulation consists of 200 agents over a 20 second period. The cohesion of an agent pair is shown as $k_cv_c$ and the repulsion as $k_rv_r$.
+Following repeated experiments in the initial deployment of a swarm it was
+found that using the same parameters for a swarm's environmental parameters and
+the cohesion and repulsion ranges that the results where always very similar.
+The results shown in this paper are therefore an example set typical of the
+results obtained. The data extracts shown in Tables \ref{tab:SampleReplusion0},
+\ref{tab:SampleReplusionPositive}, \ref{tab:SampleCohesionPositive} and
+\ref{tab:SampleEquilibrium} are the simulation results that are produced by the
+parameters listed in Table~\ref{tab:MetricPhysics1}. The simulation consists of
+200 agents over a 20 second period. The cohesion of an agent pair is shown as
+$k_cv_c$ and the repulsion as $k_rv_r$.
 
 \begin{table}[H]
 \begin{center}
@@ -262,7 +458,13 @@ Speed & 20 & units/s\\  \hline
 \end{center}
 \end{table}
 
-Figure~\ref{methods:Stability1} shows two agents within each other's cohesion fields but sufficiently distant to be outside of the repulsion fields. In this case $|k_cv_c| > 0$ and $|k_rv_r| = 0$: the result is the agent's resultant magnitude $v(b)$ causes the agent to move towards its neighbour $b'$. Likewise the neighbour's resultant magnitude $v(b')$ will cause it to move towards $b$. Table~\ref{tab:SampleReplusion0} shows the repulsion magnitude with a value of 0. The only influence on the agent pair are cohesive vectors. 
+Figure~\ref{methods:Stability1} shows two agents within each other's cohesion
+fields but sufficiently distant to be outside of the repulsion fields. In this
+case $|k_cv_c| > 0$ and $|k_rv_r| = 0$: the result is the agent's resultant
+magnitude $v(b)$ causes the agent to move towards its neighbour $b'$. Likewise
+the neighbour's resultant magnitude $v(b')$ will cause it to move towards $b$.
+Table~\ref{tab:SampleReplusion0} shows the repulsion magnitude with a value of
+0. The only influence on the agent pair are cohesive vectors. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability1}
 {Internal movement cohesion (no repulsion).\label{methods:Stability1}}
@@ -288,12 +490,16 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Figure~\ref{methods:Stability2} shows two agents close together with repulsion dominating cohesion: $|k_cv_c|~<~|k_rv_r|$. The resultant vector directs the agents away from each other. 
+Figure~\ref{methods:Stability2} shows two agents close together with repulsion
+dominating cohesion: $|k_cv_c|~<~|k_rv_r|$. The resultant vector directs the
+agents away from each other. 
 
-Table~\ref{tab:SampleReplusionPositive} shows the repulsion magnitude with a value greater than the cohesion magnitude.
+Table~\ref{tab:SampleReplusionPositive} shows the repulsion magnitude with a
+value greater than the cohesion magnitude.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability2}
-{Internal movement repulsion.\label{methods:Stability2}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=6cm]{figures/Stability2} {Internal movement
+repulsion.\label{methods:Stability2}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -316,10 +522,16 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Figure~\ref{methods:Stability3} shows two agents close together but with cohesion vector magnitudes greater than the repulsion magnitudes $|k_cv_c|~>~|k_rv_r|$. The resultant vector draws the agents together. The magnitude of the resultant cohesion vector reduces due to the cancelling effect of the repulsion vector. Table~\ref{tab:SampleCohesionPositive} shows a data extract with the cohesion magnitude greater than repulsion.
+Figure~\ref{methods:Stability3} shows two agents close together but with
+cohesion vector magnitudes greater than the repulsion magnitudes
+$|k_cv_c|~>~|k_rv_r|$. The resultant vector draws the agents together. The
+magnitude of the resultant cohesion vector reduces due to the cancelling effect
+of the repulsion vector. Table~\ref{tab:SampleCohesionPositive} shows a data
+extract with the cohesion magnitude greater than repulsion.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability3}
-{Internal movement cohesion and repulsion.\label{methods:Stability3}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=6cm]{figures/Stability3} {Internal movement cohesion and
+repulsion.\label{methods:Stability3}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -342,10 +554,16 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} & {\color{red}Repulsion} 	\
 \end{center}
 \end{table}
 
-Figure~\ref{methods:Stability4} shows two agents close together with $|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \textit{null vector} and the agents have no overall influence upon each other due to the magnitude of the resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of data from the simulator. The data shows near equilibrium but due to the dynamic nature of a swarm system no agents meet the condition fully. 
+Figure~\ref{methods:Stability4} shows two agents close together with
+$|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \textit{null vector} and the
+agents have no overall influence upon each other due to the magnitude of the
+resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of
+data from the simulator. The data shows near equilibrium but due to the dynamic
+nature of a swarm system no agents meet the condition fully. 
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/Stability4}
-{Internal movement equilibrium.\label{methods:Stability4}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=6cm]{figures/Stability4} {Internal movement
+equilibrium.\label{methods:Stability4}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -369,11 +587,19 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} &	{\color{red}Repulsion} 	\
 \end{table} 
 
 \section{Inter-Agent Distance metric}\label{Section:DistanceDynamics}
-The inter-agent distance metric considers a swarm in terms of how the agents are physically distributed: i.e. only the inter-agent distances and their standard deviation are considered. The standard deviation indicates the extent to which the swarm is out of balance and therefore the degree of movement required to rebalance the swarm structure. If the standard deviation is zero then all the agents are evenly spaced. 
+The inter-agent distance metric considers a swarm in terms of how the agents
+are physically distributed: i.e. only the inter-agent distances and their
+standard deviation are considered. The standard deviation indicates the extent
+to which the swarm is out of balance and therefore the degree of movement
+required to rebalance the swarm structure. If the standard deviation is zero
+then all the agents are evenly spaced. 
 
 %The distance metric does not take into consideration the vector magnitudes between the agents as discussed above. The metric therefore is unable to identify the potential state of the swarm in terms of its cohesive or repulsive state.
 
-Navarro and Fernando describe a \textit{mean distance error} metric that is based on the variations in distances between inter-agent spaces~\cite{NIM:09}. This is the same as the standard deviation of the distance-based internal movement metric. 
+Navarro and Fernando describe a \textit{mean distance error} metric that is
+based on the variations in distances between inter-agent spaces~\cite{NIM:09}.
+This is the same as the standard deviation of the distance-based internal
+movement metric. 
 
 
 %% \section{Distance metric internal movement}
@@ -388,7 +614,9 @@ Equation~\ref{eq:SwarmStabilityDistance1} calculates the mean distance of an age
 \mu_d(b) = \frac{1}{\mathlarger{|nbr(b)|}}\left({\mathlarger{\sum_{b' \in nbr(b)}}|bb'|}\right)
 \end{equation}
 
-The mean distance for a swarm is calculated by~Equation~\ref{eq:SwarmStabilityDistance2}. All the inter-agent distances are included for the swarm ($S$). 
+The mean distance for a swarm is calculated
+by~Equation~\ref{eq:SwarmStabilityDistance2}. All the inter-agent distances are
+included for the swarm ($S$). 
 
 %% $\sum_{b \in S}|nbr(b)|$ calculates how many inter-agent relationships exist in the swarm and $\sum_{b' \in nbr(b)}|bb'|$ calculates the total distance between each agent and its neighbours. $\sum_{b \in S}$ iterates over all the agents in the swarm~($S$).
 
@@ -398,7 +626,10 @@ The mean distance for a swarm is calculated by~Equation~\ref{eq:SwarmStabilityDi
 \end{equation}
 
 %\section{Standard deviation in distance metric}\label{Section:VarianceInDistance}
-The mean distance provides a indication of the large scale structure of the swarm. However it is not sufficient to give an indication of the internal distribution of the agents. The standard deviation clarifies the distribution within the swarm as shown in~Equation~\ref{eq:SwarmStabilityDistance3}. 
+The mean distance provides a indication of the large scale structure of the
+swarm. However it is not sufficient to give an indication of the internal
+distribution of the agents. The standard deviation clarifies the distribution
+within the swarm as shown in~Equation~\ref{eq:SwarmStabilityDistance3}. 
 
 %% $(|bb'| - \mu(S))^2$ is the square of the difference in a distance to the mean and $\sum_{b \in S}~\sum_{b' \in nbr(b)}$ calculates the number of inter-agent interactions.
 
@@ -407,15 +638,17 @@ The mean distance provides a indication of the large scale structure of the swar
 \sigma_d(S) = \sqrt{\frac{\mathlarger{\sum_{b \in S}}~\mathlarger{\sum_{b' \in nbr(b)}}\Big(|bb'| - \mu_d(S)\Big)^2}{\mathlarger{\sum_{b \in S}|nbr(b)|}}}
 \end{equation}
 
-The distance-based metric for the internal distribution of the agents is therefore $\mu_d(S)$ and $\sigma_d(S)$. This can be written informally as:
+The distance-based metric for the internal distribution of the agents is
+therefore $\mu_d(S)$ and $\sigma_d(S)$. This can be written informally as:
 
 \begin{equation}
 \label{eq:SwarmDistanceMetric}
 \psi_d(S) = \mu_d(S)\pm \sigma_d(S)
 \end{equation}
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{figures/BaselineDistance1}
-{Baseline internal movement - distance.\label{coord:BaselineDistance1}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=14cm]{figures/BaselineDistance1} {Baseline internal movement
+- distance.\label{coord:BaselineDistance1}}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -436,16 +669,49 @@ The distance-based metric for the internal distribution of the agents is therefo
 % The resultant \textit{cohesion/repulsion metric}, which is a scalar, is generated by comparing the length of the cohesion and repulsion vector magnitudes. If the cohesion magnitude is larger than the repulsion vector magnitude the resultant length is considered to be positive. If the repulsion vector magnitude is larger than the cohesion vector magnitude the resultant length is considered to be negative. 
 
 % The \textit{`cohesion/repulsion metric'} is therefore the scalar value of the \textit{`agent resultant magnitude'} which is altered based upon the difference between the repulsion and cohesion magnitudes~(\ref{eq:CohesionRepulsion}).
-This paper defines the cohesion/repulsion metric scalar for an agent as the length of $v(b)$  as defined in Equation~\ref{eq:InterAgentMovement2}: that is, the weighted effects of cohesion and repulsion by neighbours of the agent. This number carries a negative sign if repulsion dominates and a positive sign if cohesion dominates. This is summarised in Equation~\ref{eq:CohesionRepulsion}.
 
-If an agent's {cohesion/repulsion metric} is negative the swarm's bias is to expand as the repulsion is greater than cohesion. This is seen in the disorganised stage of a swarm~(Fig.~\ref{coord:BaselineMagnitude1}). The disorganised stage is the initial random deployment of the agents. If the agent \textit{agent resultant magnitude} is positive then the swarm is exhibiting a tendency to contract and this indicates the swarm is a cohesive entity. This could also be described as the swarm being `sticky' as the agents bias is to `pull' towards each other.
+This paper defines the cohesion/repulsion metric scalar for an agent as the
+length of $v(b)$  as defined in Equation~\ref{eq:InterAgentMovement2}: that is,
+the weighted effects of cohesion and repulsion by neighbours of the agent. This
+number carries a negative sign if repulsion dominates and a positive sign if
+cohesion dominates. This is summarised in Equation~\ref{eq:CohesionRepulsion}.
 
-The \textit{cohesion/repulsion metric} on its own does not give a complete measure of a swarm's internal state. There needs to be a qualifying component to the metric that identifies the degree of deviation in the resultant magnitude, this is the \textit{jitter}. The smaller the deviation the more uniform the structure of the swarm. These two components identify the degree to which a swarm has progressed towards a stable state.
+If an agent's {cohesion/repulsion metric} is negative the swarm's bias is to
+expand as the repulsion is greater than cohesion. This is seen in the
+disorganised stage of a swarm~(Fig.~\ref{coord:BaselineMagnitude1}). The
+disorganised stage is the initial random deployment of the agents. If the agent
+\textit{agent resultant magnitude} is positive then the swarm is exhibiting a
+tendency to contract and this indicates the swarm is a cohesive entity. This
+could also be described as the swarm being `sticky' as the agents bias is to
+`pull' towards each other.
+
+The \textit{cohesion/repulsion metric} on its own does not give a complete
+measure of a swarm's internal state. There needs to be a qualifying component
+to the metric that identifies the degree of deviation in the resultant
+magnitude, this is the \textit{jitter}. The smaller the deviation the more
+uniform the structure of the swarm. These two components identify the degree to
+which a swarm has progressed towards a stable state.
  
-The \textit{cohesion/repulsion metric} provides a view of the swarm's state through the balance between the repulsive and the cohesive vectors that are being applied to each agent. The deviation component identifies the degree to which the swarm has stabilised. The ideal status for inter-agent interactions would be for the agents to have a (\textit{cohesion/repulsion metric}) of zero or above. This would indicate that the agents are distributed such that they are at their distribution limit (outer most range of the cohesion field) or at a level that causes the agents to `pull' together. The ideal degree of deviation is zero as this indicates an even distribution of agents. These two aspects of a swarm's features are not considered by Gazi and Passino~\cite{GP:11} or Barnes et al~\cite{BFV:07} as a means of quantifying the structure of a swarm in terms of stability.
+The \textit{cohesion/repulsion metric} provides a view of the swarm's state
+through the balance between the repulsive and the cohesive vectors that are
+being applied to each agent. The deviation component identifies the degree to
+which the swarm has stabilised. The ideal status for inter-agent interactions
+would be for the agents to have a (\textit{cohesion/repulsion metric}) of zero
+or above. This would indicate that the agents are distributed such that they
+are at their distribution limit (outer most range of the cohesion field) or at
+a level that causes the agents to `pull' together. The ideal degree of
+deviation is zero as this indicates an even distribution of agents. These two
+aspects of a swarm's features are not considered by Gazi and
+Passino~\cite{GP:11} or Barnes et al~\cite{BFV:07} as a means of quantifying
+the structure of a swarm in terms of stability.
 
 % \section{Cohesion/repulsion internal movement model}\label{Section:StabilityModel}
-Section~\ref{Section:StabilityMagnitude}~discussed calculation of resultant cohesion~(Equation~\ref{eq:FlyToCentre1}) and resultant repulsion~(Equation~\ref{eq:Repulsion1}) vectors for each agent deriving a combined \textit{cohesion/repulsion vector} using as shown in Equation~\ref{eq:InterAgentMovement2}. 
+
+Section~\ref{Section:StabilityMagnitude}~discussed calculation of resultant
+cohesion~(Equation~\ref{eq:FlyToCentre1}) and resultant
+repulsion~(Equation~\ref{eq:Repulsion1}) vectors for each agent deriving a
+combined \textit{cohesion/repulsion vector} using as shown in
+Equation~\ref{eq:InterAgentMovement2}. 
 
 %% This value represents the overall `potential' of an agent. This vector when normalised produces a component of the \textit{movement-destination vector} for a swarm. If the total cohesion/repulsion vector is zero (null vector) then the agent will not move. $M(b)$ is the total \textit{cohesion/repulsion vector} for agent $b$ defined by:
 %% 
@@ -454,7 +720,9 @@ Section~\ref{Section:StabilityMagnitude}~discussed calculation of resultant cohe
 %% M(b) = k_cv_c(b) + k_rv_r(b)
 %% \end{equation}
 
-Now, we define for each agent $b$ a \textit{cohesion/repulsion scalar}, $P(b)$, to measure the influence of the neighbours of $b$ as cohesive (positive) or repulsive (negative); shown in Equation~\ref{eq:CohesionRepulsion}.
+Now, we define for each agent $b$ a \textit{cohesion/repulsion scalar}, $P(b)$,
+to measure the influence of the neighbours of $b$ as cohesive (positive) or
+repulsive (negative); shown in Equation~\ref{eq:CohesionRepulsion}.
 
 \begin{equation}
 \label{eq:CohesionRepulsion}
@@ -464,7 +732,9 @@ P(b) = \left\{\begin{array}{lll}
               \end{array}\right.
 \end{equation}
 
-Although it is possible for $v(b)$ to be null there could still be variation in the constituent components. The variation calculation (standard deviation) as shown in Equation~\ref{eq:SwarmStabilityQuotientT}. 
+Although it is possible for $v(b)$ to be null there could still be variation in
+the constituent components. The variation calculation (standard deviation) as
+shown in Equation~\ref{eq:SwarmStabilityQuotientT}. 
 
 %% Equation~\ref{eq:SwarmStabilityMetricT} is the mean of the cohesion/repulsion scalar for an agent.
 %% 
@@ -480,7 +750,8 @@ Although it is possible for $v(b)$ to be null there could still be variation in 
 %% \mu_p(b_{t}) = \frac{P(b_{t})}{|nbr(b_{t})|}
 %% \end{equation}
 
-The mean cohesion/repulsion scalar for the swarm is now given by~(\ref{eq:SwarmStabilityMetricT3}).  
+The mean cohesion/repulsion scalar for the swarm is now given
+by~(\ref{eq:SwarmStabilityMetricT3}).  
 
 \begin{equation}
 \label{eq:SwarmStabilityMetricT3}
@@ -490,7 +761,9 @@ The mean cohesion/repulsion scalar for the swarm is now given by~(\ref{eq:SwarmS
 %% \section{Standard deviation in agent cohesion/repulsion metric}\label{Section:VarianceInPotential}
 %% To improve the metric clarification in terms of the deviation from the \textit{cohesion/repulsion metric} norm is calculated. The standard deviation of the entire swarm  is shown in Equation \ref{eq:SwarmStabilityMetricT}.
 
-The standard deviation associated with this mean is calculated as Equation~\ref{eq:SwarmStabilityQuotientT}.
+The standard deviation associated with this mean is calculated as
+Equation~\ref{eq:SwarmStabilityQuotientT}.
+
 %%  where $\sigma_p(S)$ is the standard deviation and $\mu_p(S)$ is the mean at the same point in time. 
 
 \begin{equation}
@@ -498,7 +771,9 @@ The standard deviation associated with this mean is calculated as Equation~\ref{
 \sigma_p(S) = \sqrt{\frac{\mathlarger{\sum_{b \in S}}\Big(P(b)-\mu_p(S)\Big)^2}{\mathlarger{\sum_{b \in S}}|nbr(b)| + \mathlarger{\sum_{b \in S}}|rep(b)|}}
 \end{equation}
 
-The metric for the internal movement is this pair of numbers, the mean and standard deviation of the swarm's internal \textit{cohesion/repulsion}. The pair $\mu_p(S)$, $\sigma_p(S)$ may be written informally as: 
+The metric for the internal movement is this pair of numbers, the mean and
+standard deviation of the swarm's internal \textit{cohesion/repulsion}. The
+pair $\mu_p(S)$, $\sigma_p(S)$ may be written informally as: 
 
 \begin{equation}
 \label{eq:SwarmPotentialMagnitude}
@@ -519,15 +794,38 @@ Figure~\ref{coord:BaselineMagnitude1} shows the evolution of the metric in time.
 
 \section{Application: Area filling}\label{Section:ApplicationFloodFilling}
 
-Area filling is a technique used to fill an enclosed area with agents such that they are distributed as `effectively' as possible throughout an area. 
+Area filling is a technique used to fill an enclosed area with agents such that
+they are distributed as `effectively' as possible throughout an area. 
 
-Filling an area can be applied to tasks that require an unknown environment to be analysed or surveyed. Consider a disaster area following a landslide or a building collapse following an earthquake; the movement in the land and buildings will produce areas that are unmapped. The unmapped areas may require investigation to locate people, or resources, or to create some form of sensor network to analyse the conditions within the area, such as creating a heat map or identifying the location of toxic gases. 
+Filling an area can be applied to tasks that require an unknown environment to
+be analysed or surveyed. Consider a disaster area following a landslide or a
+building collapse following an earthquake; the movement in the land and
+buildings will produce areas that are unmapped. The unmapped areas may require
+investigation to locate people, or resources, or to create some form of sensor
+network to analyse the conditions within the area, such as creating a heat map
+or identifying the location of toxic gases. 
 
-The concept of using a swarm to provide coverage over unknown areas is a current area of research. Alvissalim et al. discuss the application of commercially available drones to provide a communication infrastructure across an unmapped disaster area~\cite{AZHMJJM:12}. Scheutz and Bauer (2006) use both cohesion and repulsion as a mechanism to create coverage of an area that requires protection in an adversarial environment~\cite{SB:06}.
+The concept of using a swarm to provide coverage over unknown areas is a
+current area of research. Alvissalim et al. discuss the application of
+commercially available drones to provide a communication infrastructure across
+an unmapped disaster area~\cite{AZHMJJM:12}. Scheutz and Bauer (2006) use both
+cohesion and repulsion as a mechanism to create coverage of an area that
+requires protection in an adversarial environment~\cite{SB:06}.
 
-The concept behind the area filling is to increase both the repulsion and cohesion fields over a period of time. This increase in the field effects makes the agents increase the distance between each other, expanding the swarm as a whole. The expansion increases until, due to boundary compression, the swarm is unable to expand further. In an extreme case the expansion will result in a set of field effects that create a mesh-based swarm structure rather than the desired hexagonal structure that the field effects should create. Identifying the \textit{cohesion/repulsion metric} falling below zero indicates area saturation has occurred.
+The concept behind the area filling is to increase both the repulsion and
+cohesion fields over a period of time. This increase in the field effects makes
+the agents increase the distance between each other, expanding the swarm as a
+whole. The expansion increases until, due to boundary compression, the swarm is
+unable to expand further. In an extreme case the expansion will result in a set
+of field effects that create a mesh-based swarm structure rather than the
+desired hexagonal structure that the field effects should create. Identifying
+the \textit{cohesion/repulsion metric} falling below zero indicates area
+saturation has occurred.
 
-To test this hypothesis a swarm is modelled in the simulator. The model consists of an obstacle-based enclosed space and a swarm consisting of 60 agents. The experiments parameters for the simulation are shown in~Table~\ref{tab:FillParameters1}
+To test this hypothesis a swarm is modelled in the simulator. The model
+consists of an obstacle-based enclosed space and a swarm consisting of 60
+agents. The experiments parameters for the simulation are shown
+in~Table~\ref{tab:FillParameters1}
 
 \begin{table}[H]
 \begin{center}
@@ -542,12 +840,23 @@ Speed         & 20 units/s & agent speed\\ \hline
 \end{center}
 \end{table}
 
-The field effects are incremented in turn, cohesion range followed by repulsion range. After each repulsion field change the swarm is allowed to redistribute itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect settings that are used for the simulation. The field effects are selected so as to ensure the swarm parameters have the potential to create a hexagonal swarm. Figure \ref{emerge:FLOOD0} shows the initial swarm deployment.
+The field effects are incremented in turn, cohesion range followed by repulsion
+range. After each repulsion field change the swarm is allowed to redistribute
+itself and stabilise. Table~\ref{tab:FillSequence} shows the field effect
+settings that are used for the simulation. The field effects are selected so as
+to ensure the swarm parameters have the potential to create a hexagonal swarm.
+Figure \ref{emerge:FLOOD0} shows the initial swarm deployment.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD0}
 {Flood fill Start.\label{emerge:FLOOD0}}
 
-Figure~\ref{emerge:FLOOD1} shows the point a which data logging starts. The swarm at this stage has expanded into the space but is not filling it. This presents itself as a positive cohesion/repulsion metric value which indicates the swarm is cohesive and the agents are still ``pulling" together. Fig.~\ref{emerge:FLOOD6} shows the final swarm distribution for the simulation, at this point the cohesion/repulsion metric has fell below zero indicating the swarm is trying to expand. 
+Figure~\ref{emerge:FLOOD1} shows the point a which data logging starts. The
+swarm at this stage has expanded into the space but is not filling it. This
+presents itself as a positive cohesion/repulsion metric value which indicates
+the swarm is cohesive and the agents are still ``pulling" together.
+Fig.~\ref{emerge:FLOOD6} shows the final swarm distribution for the simulation,
+at this point the cohesion/repulsion metric has fell below zero indicating the
+swarm is trying to expand. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{figures/FLOOD1}
 {Data Capture Start.\label{emerge:FLOOD1}}
@@ -566,10 +875,15 @@ Neighbour Distance & 60 & 70 & -  & 80 & -  & 90 & -  & units\\  \hline
 \end{center}
 \end{table}
 
-Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the swarm for the entire simulation. Between 100 seconds and 105 seconds there is a significant change in the magnitude where the value becomes negative. This indicates there is a compression effect on the swarm which indicates the area is filled.
+Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the
+swarm for the entire simulation. Between 100 seconds and 105 seconds there is a
+significant change in the magnitude where the value becomes negative. This
+indicates there is a compression effect on the swarm which indicates the area
+is filled.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{figures/FIELDFILL-MAG}
-{Cohesion/Repulsion metric 0-120 seconds.\label{emerge:FIELDFILL-MAG}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=14cm]{figures/FIELDFILL-MAG} {Cohesion/Repulsion metric
+0-120 seconds.\label{emerge:FIELDFILL-MAG}}
 
 % \begin{figure}[H]
 % \begin{center}
@@ -578,10 +892,16 @@ Figure~\ref{emerge:FIELDFILL-MAG} shows the cohesion/repulsion metric for the sw
 % \caption{Magnitude metric 0-120 seconds\label{emerge:FIELDFILL-MAG}}
 % \end{figure}
 
-Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simulation. The initial deployment is shown at 0 seconds followed by incremental changes in the distances and variance of the distances as each increment is made in the field effects. The simulation terminates after 120 seconds. There is no feature of this graph which indicates that the area is filled. The cohesion/repulsion metric clearly tells us more. 
+Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same
+simulation. The initial deployment is shown at 0 seconds followed by
+incremental changes in the distances and variance of the distances as each
+increment is made in the field effects. The simulation terminates after 120
+seconds. There is no feature of this graph which indicates that the area is
+filled. The cohesion/repulsion metric clearly tells us more. 
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{figures/FIELDFILL-DIST}
-{Distance metric 0-120 seconds.\label{emerge:FIELDFILL-DIST}}
+\Figure[t!](topskip=0pt, botskip=0pt,
+midskip=0pt)[width=14cm]{figures/FIELDFILL-DIST} {Distance metric 0-120
+seconds.\label{emerge:FIELDFILL-DIST}}
 
 % \begin{figure}[H]
 % \begin{center}
@@ -594,14 +914,38 @@ Figure~\ref{emerge:FIELDFILL-DIST}~shows the distance metric for the same simula
 %% The two metrics (distance and \textit{cohesion/repulsion}) both measure the structure of a swarm in terms of the distribution of the agents and deviations from a mean. The \textit{cohesion/repulsion} metric also allows the state of the swarm to be identified.
 %% 
 %% The distance metric is based upon the physical \textit{distribution} of the agents and the cohesion/repulsion metric is based upon the logical \textit{interaction} of the agents.
-Distance-based metrics measure a swarm's structure in terms of the position of agents. This is independent of the algorithm that produces the swarm's structure. It provides an analysis of agent distribution at a point in time but does not allow the identification of the future behaviour of a swarm as `expanding', `stable' or `contracting'. 
+
+Distance-based metrics measure a swarm's structure in terms of the position of
+agents. This is independent of the algorithm that produces the swarm's
+structure. It provides an analysis of agent distribution at a point in time but
+does not allow the identification of the future behaviour of a swarm as
+`expanding', `stable' or `contracting'. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=6cm]{figures/FieldEffects2}
 {Heterogeneous field effects.\label{additional:fieldsWork}}
 
-The new \textit{cohesion/repulsion} metric is based upon the algorithms that have produced the structure and is therefore an analysis of how the algorithms are performing rather than the structure presented. The new metric also provides an indication of a swarm's potential future movement. This is independent of the physical distribution of the agents within the swarm. The metric also provides the same information as the distance metric in terms of agent distribution when the field effects are consistent across all agents i.e. monolithic field effects. This is shown in Fig. \ref{emerge:FIELDFILL-MAG} and \ref{emerge:FIELDFILL-DIST} by the profiles of the two graphs being the same. In addition the new metric provides a mechanism for evaluating swarms that use different algorithms to create a swarming effect and allows the algorithms inter-agent interactions to be compared rather than the resultant structure the algorithm creates. 
+The new \textit{cohesion/repulsion} metric is based upon the algorithms that
+have produced the structure and is therefore an analysis of how the algorithms
+are performing rather than the structure presented. The new metric also
+provides an indication of a swarm's potential future movement. This is
+independent of the physical distribution of the agents within the swarm. The
+metric also provides the same information as the distance metric in terms of
+agent distribution when the field effects are consistent across all agents i.e.
+monolithic field effects. This is shown in Fig. \ref{emerge:FIELDFILL-MAG} and
+\ref{emerge:FIELDFILL-DIST} by the profiles of the two graphs being the same.
+In addition the new metric provides a mechanism for evaluating swarms that use
+different algorithms to create a swarming effect and allows the algorithms
+inter-agent interactions to be compared rather than the resultant structure the
+algorithm creates. 
 
-The two metrics can be used together to provide a deeper evaluation of a swarm's structure and `potential'. Consider the following scenario: the repulsion field is increased but the internal distances do not change; as a result the \textit{cohesion/repulsion metric} falls below zero. This indicates `something' is confining the swarm's distribution as discussed in Section \ref{Section:ApplicationFloodFilling}. This analysis could be used in identifying effective swarm distribution for the coverage of a sensor array as discussed by Ramaithitima et al.~\cite{RWBK:15}
+The two metrics can be used together to provide a deeper evaluation of a
+swarm's structure and `potential'. Consider the following scenario: the
+repulsion field is increased but the internal distances do not change; as a
+result the \textit{cohesion/repulsion metric} falls below zero. This indicates
+`something' is confining the swarm's distribution as discussed in Section
+\ref{Section:ApplicationFloodFilling}. This analysis could be used in
+identifying effective swarm distribution for the coverage of a sensor array as
+discussed by Ramaithitima et al.~\cite{RWBK:15}
 
 %% \begin{figure}[H]
 %% \begin{center}
@@ -611,27 +955,29 @@ The two metrics can be used together to provide a deeper evaluation of a swarm's
 %% \end{figure}
 
 \section{Future work}\label{Section:FutureWork}
+
 The new metric can be applied to the analysis of the effects of coordination
-algorithms upon a swarm's structure. An application to flood filling has
-been discussed~(Section~\ref{Section:ApplicationFloodFilling}). The metric can also be applied to identifying the effects of 
-`healing' algorithms, e.g. to remove `voids' from a swarm. We plan
-to investigate this, and other, practical applications of the metric.
+algorithms upon a swarm's structure. An application to area filling has been
+discussed~(Section~\ref{Section:ApplicationFloodFilling}). The metric can also
+be applied to identifying the effects of `healing' algorithms, e.g. to remove
+`voids' from a swarm. We plan to investigate this, and other, practical
+applications of the metric.
 
 The detection of a swarm's perimeter~\cite{MD:09, MJ:08, ZAPS:07, JG:13}
-identifies a subset of a swarm which can be used for coordination. 
-Perimeter detection is widely used in swarm coordination~\cite{ZFG:13, AKK:08,
+identifies a subset of a swarm which can be used for coordination.  Perimeter
+detection is widely used in swarm coordination~\cite{ZFG:13, AKK:08,
 APZDAMC:09, AZDPS:11}. A possible adaptation of this area of research is to
-investigate the reduction of the field effects (cohesion and repulsion) on the perimeter
-so as to increase the agent density in this region of the swam. This change in the swarm's structure
-could improve the granularity of analysis, e.g. when using sensor arrays at
-the frontier of the swarm.
-However, this approach leads to swarms of agents having heterogeneous field
-effects, as shown in Fig.~\ref{additional:fieldsWork}. Clearly, the
-distance-based metric is not useful in the analysis of such swarms. We believe
-that the cohesion/repulsion metric introduced in this paper can identify a
-swarm's structure even when the swarm is heterogeneous, since the metric is
-based directly upon inter-agent field effects rather than the physical
-distribution of agents. This will also be the subject of forthcoming work.
+investigate the reduction of the field effects (cohesion and repulsion) on the
+perimeter so as to increase the agent density in this region of the swam. This
+change in the swarm's structure could improve the granularity of analysis, e.g.
+when using sensor arrays at the frontier of the swarm.  However, this approach
+leads to swarms of agents having heterogeneous field effects, as shown in
+Fig.~\ref{additional:fieldsWork}. Clearly, the distance-based metric is not
+useful in the analysis of such swarms. We believe that the cohesion/repulsion
+metric introduced in this paper can identify a swarm's structure even when the
+swarm is heterogeneous, since the metric is based directly upon inter-agent
+field effects rather than the physical distribution of agents. This will also
+be the subject of forthcoming work.
 
 \clearpage
 
