@@ -144,14 +144,10 @@ area-filling scenario to highlight a possible use of the new metric.
 
 The remainder of this paper is structured as follows:
 Section~\ref{Section:Related} discusses different metrics that are currently
-used to analyse swarms; Section~\ref{Section:SwarmModelling} introduces a basic
-swarm model to produce an environment that can be analysed and evaluated using
-the two metrics; Section~\ref{Section:StabilityMagnitude} discusses the
-mathematical model that produces the swarming effect and how the potential
-fields are applied; Section~\ref{Section::Movement1} discusses how the model is
-implemented over time to produce movement;
-Section~\ref{Section:StabilityNullVector} discusses the effect of the model on
-swarm stability and the effects models have on swarm movements; 
+used to analyse swarms; Section~\ref{Section:SwarmModelling} introduces a 
+model of swarm behaviour, using potential fields, that can be analysed and evaluated using
+the two metrics; Section~\ref{Section:SwarmDynamics} shows examples of the typical
+dynamic behaviour of swarms under the potential field model;
 % Section~\ref{Section:Jitter} discusses the effect the mathematical model can
 % have upon the structure of a swarm in terms of potentially wasted energy. 
 Section~\ref{Section:DistanceDynamics} discusses a distance-based metric for
@@ -236,7 +232,7 @@ analysis of swarm behaviour.
 
 %% \section{Metric principles\label{section:MagnitudeDynamics}}
 %% This section discusses the theory behind swarm movement and the effects that can be measured using both the metrics described above.
-\section{Swarm modelling}\label{Section:SwarmModelling}
+\section{Swarm modelling with potential fields}\label{Section:SwarmModelling}
 Currently, much swarm research uses field effects as the method of modelling
 inter-agent interactions~\cite{BAF:06, BAFVM:06, BM:09, APZDAMC:09, GP:02,
 GP:04, GP:04a, GP:05, GP:11, MYP:09}. The models usually use two field effects
@@ -265,7 +261,7 @@ to move away from the obstacle.
 %% \caption{Agent field effects\label{methods:FieldEffects}}
 %% \end{figure}
 
-\section{Inter-agent vector magnitude effect on internal movement}\label{Section:StabilityMagnitude}
+%\section{Inter-agent vector magnitude effect on internal movement}\label{Section:StabilityMagnitude}
 Figure~\ref{methods:Stability5} shows the cohesion and repulsion vector
 contributions of neighbour $b'$ to $v_c(b)$ and $v_r(b)$, as given in
 Equations~\ref{eq:FlyToCentre1} and \ref{eq:Repulsion1}. Notice that the vectors
@@ -335,7 +331,7 @@ v(b) = k_cv_{c}(b) + k_rv_{r}(b)
 %% \caption{Vectors on line of separation} \label{methods:Stability5}
 %% \end{figure}
 
-\section{Internal movement and the null vector}\label{Section:StabilityNullVector}
+%\section{Internal movement and the null vector}\label{Section:StabilityNullVector}
 
 When the two vectors (cohesion and repulsion) have magnitudes that are equal
 and opposite they produce a null vector, indicating that two agents are
@@ -346,8 +342,8 @@ optimum position to be created where the vector magnitude is affected by a
 compression effect. This phenomenon is used in the identification of the
 emergent behaviour of \textit{area filling}.  
 
-If we consider the equilibrium state (Fig.~\ref{methods:Stability4}) the
-resultant $v(b)=(0,0)$. A null vector cannot be normalised to produce a
+If we consider the equilibrium state, % (Fig.~\ref{methods:Stability4})
+the resultant $v(b)=(0,0)$. A null vector cannot be normalised to produce a
 directional vector ($\hat{v} = \frac{v}{|v|}$ if $v\neq0$; $0$ if $v=0$) The
 effect is that the agent will remain stationary. If all agent pairs are in this
 condition the swarm will stop moving~(Fig.~\ref{methods:StabilityNullVector}).
@@ -362,19 +358,22 @@ condition the swarm will stop moving~(Fig.~\ref{methods:StabilityNullVector}).
 %% \caption{Equilibrium with null vectors} \label{methods:StabilityNullVector}
 %% \end{figure}
 
-Due to the movement of agents being based only on neighbour interactions this
+Due to the movement of agents being based only on neighbour interactions, this
 situation is very rare. The residual motion that persists in a swarm is the
 background `noise' or `jitter' that an algorithm creates.
 
-If a swarm is goal-based, the addition of a \textit{directional vector} will
-prevent all agents simultaneously producing null vectors as shown
-in~Fig.~\ref{concave:VoidPerimeter2} and
-Equation~\ref{eq:InterAgentMovementDirectional1}. Here, $k_dv_{d}(b)$ is the
-calculated directional vector to be applied to an agent.
-
+A swarm can also have a \emph{goal}. This is modelled simply by the addition of 
+a \textit{directional vector}, as shown in~Equation~\ref{eq:InterAgentMovementDirectional1}.
 \begin{equation}\label{eq:InterAgentMovementDirectional1}
 v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
 \end{equation}
+Here, $k_dv_{d}(b)$ is the
+calculated directional vector to be applied to an agent.
+
+
+Goal-based swarms tend to 
+prevent all agents simultaneously producing null vectors, as suggested by
+Fig.~\ref{concave:VoidPerimeter1}~and~\ref{concave:VoidPerimeter2}.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=4cm]{figures/StabilityNullVector3}
 {Equilibrium with directional vector (t).\label{concave:VoidPerimeter1}}
@@ -401,13 +400,14 @@ v(b) = k_cv_{c}(b) + k_rv_{r}(b) + k_dv_{d}(b)
 % \section{Residual internal movement (Jitter)}\label{Section:Jitter}
 % Due to the dynamic nature of a swarm, maintaining optimum internal movement as in~Figure \ref{methods:StabilityNullVector} is highly unlikely. The agent pairs may fluctuate between the 4 states~(Fig.~\ref{methods:Stability1}, \ref{methods:Stability2}, \ref{methods:Stability3} and \ref{methods:Stability4}); These transitions are \textit{jitter}. The degree to which this variation occurs can be measured using either the change in distance between the agents, or the change in the magnitude $P(b)$~(Equation~\ref{eq:CohesionRepulsion}) between the agents. Jitter arises as motion to maintain the structure of a swarm. A swarm coordination algorithm that reduces jitter is generally desirable.
 
-\section{Modelling movement}\label{Section::Movement1}
+\section{Swarm dynamics}\label{Section:SwarmDynamics}
+%\section{Modelling movement}\label{Section::Movement1}
 Each agent within a swarm calculates its \textit{movement-direction vector}
-based on its \textit{interaction} and \textit{destination} vectors. The
+based on its \textit{inter-agent} and \textit{directional} vectors. The
 \textit{movement vector}~($b_{pos}$) is calculated using the unit
 \textit{movement-direction vector}
-(Equation~\ref{eq:InterAgentMovementDirectional1}) multiplied by the time
-elapsed~($t$) in the system and the speed characteristic of the agent~($s_b$).
+(Equation~\ref{eq:InterAgentMovementDirectional1}), multiplied by the time
+elapsed~($t$) in the system, and the speed characteristic of the agent~($s_b$).
 
 This process is carried out for every agent in the swarm to generate the
 swarm's next position.
@@ -419,22 +419,21 @@ b_{pos}=s_{b}t\big(v(b)\big)\string^
 \end{equation}
 \end{center}
 
-The increment in the location of agent $b$ over time interval $t$ is shown in
-Equation~\ref{eq:AgentMovement} where $s_b$ is the speed of agent~$b$. Note
-that \string^ is the equivalent of $\hat{v} = \frac{v}{|v|}$ the normalised
+The change in the location of agent $b$, over time interval $t$, is shown in
+Equation~\ref{eq:AgentMovement}, where $s_b$ is the speed of agent~$b$. Note
+that \string^ is the equivalent of $\hat{v} = \frac{v}{|v|}$, the normalised
 vector.
 
-\section{Swarm movement analysis\label{metric:MagnitudeDynamics2}}
 The repulsion and cohesion vectors are generated for an agent through the
-interaction of their field effects~(Fig.~\ref{methods:FieldEffects}). There are
-a limited number of interactions that can occur; These are illustrated in
+interaction of its field effects~(Fig.~\ref{methods:FieldEffects}). There are
+a limited number of interactions that can occur. These are illustrated in
 Fig.~\ref{methods:Stability1}, \ref{methods:Stability2},
 \ref{methods:Stability3} and \ref{methods:Stability4}.
 
-Following repeated experiments in the initial deployment of a swarm it was
-found that using the same parameters for a swarm's environmental parameters and
-the cohesion and repulsion ranges that the results where always very similar.
-The results shown in this paper are therefore an example set typical of the
+Following repeated experiments in the initial deployment of a swarm, it was
+found that, using the same parameters for a swarm's environment and
+cohesion and repulsion ranges, always produced very similar behaviour.
+The results shown in this section are an example set typical of the
 results obtained. The data extracts shown in Tables \ref{tab:SampleReplusion0},
 \ref{tab:SampleReplusionPositive}, \ref{tab:SampleCohesionPositive} and
 \ref{tab:SampleEquilibrium} are the simulation results that are produced by the
@@ -460,7 +459,7 @@ Speed & 20 & units/s\\  \hline
 
 Figure~\ref{methods:Stability1} shows two agents within each other's cohesion
 fields but sufficiently distant to be outside of the repulsion fields. In this
-case $|k_cv_c| > 0$ and $|k_rv_r| = 0$: the result is the agent's resultant
+case $|k_cv_c| > 0$ and $|k_rv_r| = 0$: the result is that the agent's resultant
 magnitude $v(b)$ causes the agent to move towards its neighbour $b'$. Likewise
 the neighbour's resultant magnitude $v(b')$ will cause it to move towards $b$.
 Table~\ref{tab:SampleReplusion0} shows the repulsion magnitude with a value of
@@ -555,11 +554,11 @@ Log &	Id &	N.Id &	Distance &	{\color{green}Cohesion} & {\color{red}Repulsion} 	\
 \end{table}
 
 Figure~\ref{methods:Stability4} shows two agents close together with
-$|k_cv_c|~=~|k_rv_r|$ the resultant vector is a \textit{null vector} and the
-agents have no overall influence upon each other due to the magnitude of the
-resultant vector being zero. Table~\ref{tab:SampleEquilibrium} is an extract of
-data from the simulator. The data shows near equilibrium but due to the dynamic
-nature of a swarm system no agents meet the condition fully. 
+$|k_cv_c|~=~|k_rv_r|$. The resultant vector is a \textit{null vector} and the
+agents have no overall influence upon each other, since the magnitude of the
+resultant vector is zero. Table~\ref{tab:SampleEquilibrium} is an extract of
+data from the simulator. The data shows near equilibrium, but due to the dynamic
+nature of a swarm system, no agents meet the condition fully. 
 
 \Figure[t!](topskip=0pt, botskip=0pt,
 midskip=0pt)[width=6cm]{figures/Stability4} {Internal movement
@@ -707,7 +706,7 @@ the structure of a swarm in terms of stability.
 
 % \section{Cohesion/repulsion internal movement model}\label{Section:StabilityModel}
 
-Section~\ref{Section:StabilityMagnitude}~discussed calculation of resultant
+Section~\ref{Section:SwarmModelling}~discussed calculation of resultant
 cohesion~(Equation~\ref{eq:FlyToCentre1}) and resultant
 repulsion~(Equation~\ref{eq:Repulsion1}) vectors for each agent deriving a
 combined \textit{cohesion/repulsion vector} using as shown in
